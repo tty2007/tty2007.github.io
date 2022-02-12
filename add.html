@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        *{
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+        div{
+            margin-top: 50px;
+        }
+        input{
+            width:200px;
+            height:30px;
+            border:1px solid #ccc;
+            border-radius:5px;
+            margin-top:10px;
+            outline: none;
+            padding-left: 10px;
+            background: #fff;
+            box-shadow: #ccc 0px 1px 4px;
+        }
+        button{
+            width:100px;
+            height:30px;
+            border:1px solid #ccc;
+            border-radius:5px;
+            margin-top:10px;
+            outline: none;
+            background: #fff;
+            transition: .3s;
+        }
+        button:hover{
+            cursor: pointer;
+            background: #f8f8f8;
+        }
+        textarea{
+            width:400px;
+            height:200px;
+            border:1px solid #ccc;
+            border-radius:5px;
+            margin-left:10px;
+            margin-top:10px;
+            outline: none;
+            padding: 10px;
+            background: #fff;
+            box-shadow: #ccc 0px 1px 4px;
+            resize: none;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add</title>
+</head>
+<body>
+    <center>
+    <div class="main">
+            <input type="text" name="name" id="name" placeholder="学生姓名">
+            <br>
+            <input type="number" name="chi" id="chi" placeholder="语文成绩">
+            <input type="number" name="math" id="math" placeholder="数学成绩">
+            <br>
+            <input type="number" name="eng" id="eng" placeholder="英语成绩">
+            <input type="number" name="his" id="his" placeholder="历史成绩">
+            <br>
+            <input type="number" name="pos" id="pos" placeholder="政治成绩">
+            <input type="number" name="phis" id="phis" placeholder="物理成绩">
+            <br>
+            <input type="number" name="chim" id="chim" placeholder="化学成绩">
+            <br>
+            <button id="submit">提交</button>
+        </div>
+        <textarea name="result" id="result" readonly>点击此处直接复制</textarea>
+    </center>
+    
+    <script>
+        function getid(id){
+            return document.getElementById(id);
+        }
+
+        const name = getid('name');
+        const chi = getid('chi');
+        const math = getid('math');
+        const eng = getid('eng');
+        const his = getid('his');
+        const pos = getid('pos');
+        const phis = getid('phis');
+        const chim = getid('chim');
+        const submit = getid('submit');
+        const result = getid('result');
+
+        submit.onclick = function(){
+
+            if(name.value!=""
+                && chi.value!=""
+                && math.value!=""
+                && eng.value!=""
+                && his.value!=""
+                && pos.value!=""
+                && phis.value!=""
+                && chim.value!=""
+            ){
+            
+            
+            result.value = `,{
+    "name":"${name.value}",
+    "chinese":${chi.value},
+    "math":${math.value},
+    "english":${eng.value},
+    "history":${his.value},
+    "politics":${pos.value},
+    "physics":${phis.value},
+    "chemistry":${chim.value}
+}`
+            alert('提交成功');
+            }else{
+                alert('请填写完整信息');
+            }
+        }
+
+        result.onclick = function(){
+            if(result.value!="点击此处直接复制"){
+                try{
+                    result.select();
+                    document.execCommand('copy');
+                    alert('复制成功，请粘贴到 data.json 文件中。');
+                }catch(err){
+                    alert('复制失败，请手动复制。');
+                    console.error(err);
+                }
+            }
+            else{
+                alert('请先点击提交');
+            }
+            
+        }
+    </script>
+</body>
+</html>

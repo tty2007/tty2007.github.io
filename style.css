@@ -1,0 +1,52 @@
+br{
+    user-select: none;
+}
+
+td{
+    border: 1px solid #000;
+    font-size: 24px;
+    padding: 5px 10px;
+}
+
+tr{
+    border: none;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+}
+
+table{
+    border-spacing: 0;
+}
+
+input{
+    
+    width:200px;
+    height:30px;
+    border:1px solid #ccc;
+    border-radius:5px;
+    margin-top:50px;
+    outline: none;
+    padding-left: 10px;
+    background: #fff;
+    box-shadow: #ccc 0px 1px 4px;
+}
+button{
+    width:100px;
+    height:30px;
+    border:1px solid #ccc;
+    border-radius:5px;
+    margin-left:10px;
+    margin-top:10px;
+    outline: none;
+    background: #fff;
+    transition: .3s;
+}
+
+button:hover{
+    cursor: pointer;
+    background: #f8f8f8;
+}
+
+#result{
+    margin-top: 25px;
+}
