@@ -2,8 +2,8 @@
     "marks":[
         {
             "name":"郭思恒",
-            "chinese":0,
-            "math":0,
+            "chinese":100,
+            "math":100,
             "english":0,
             "history":0,
             "politics":0,
@@ -12,7 +12,7 @@
         }
         ,{
             "name":"王嘉宇",
-            "chinese":0,
+            "chinese":100,
             "math":0,
             "english":0,
             "history":0,
@@ -22,23 +22,23 @@
         }
         ,{
             "name":"余庆",
-            "chinese":0,
-            "math":0,
-            "english":0,
-            "history":0,
-            "politics":0,
-            "physics":0,
-            "chemistry":0
+            "chinese":100,
+            "math":130,
+            "english":100,
+            "history":120,
+            "politics":110,
+            "physics":10,
+            "chemistry":120
         }
        ,{
             "name":"刘桐宇",
-            "chinese":0,
-            "math":0,
-            "english":0,
-            "history":0,
-            "politics":0,
-            "physics":0,
-            "chemistry":0
+            "chinese":120,
+            "math":120,
+            "english":120,
+            "history":100,
+            "politics":100,
+            "physics":100,
+            "chemistry":100
         }
         ,{
             "name":"杨昊宇",
@@ -511,5 +511,15 @@
             "chemistry":0
         }
         
-    ]
+    ],
+    "full":{
+        "chinese":150,
+        "math":150,
+        "english":150,
+        "history":100,
+        "politics":100,
+        "physics":100,
+        "chemistry":100,
+        "total":850
+    }
 } 

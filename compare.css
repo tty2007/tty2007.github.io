@@ -1,0 +1,55 @@
+.line{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 80vh;
+    width: 1px;
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
+button{
+    user-select: none;
+    width:100px;
+    height:30px;
+    border:1px solid #ccc;
+    border-radius:5px;
+    margin-top: 15px;
+    outline: none;
+    background: #fff;
+    transition: .3s;
+}
+
+button:hover{
+    cursor: pointer;
+    background: #f8f8f8;
+}
+
+#check{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#c1{
+    position: fixed;
+    top: 45%;
+    transform: translateY(-50%);
+    left: 20px;
+    width: calc(50vw - 40px);
+}
+
+#c2{
+    position: absolute;
+    right: 20px;
+    width: calc(50vw - 40px);
+}
+
+.highcharts-credits{
+    display: none !important;
+}
+
+hr{
+    border: none;
+    border-bottom: 1px solid #ccc;
+}

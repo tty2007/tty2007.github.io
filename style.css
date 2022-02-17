@@ -1,3 +1,8 @@
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
 br{
     user-select: none;
 }
@@ -31,6 +36,7 @@ input{
     box-shadow: #ccc 0px 1px 4px;
 }
 button{
+    user-select: none;
     width:100px;
     height:30px;
     border:1px solid #ccc;
@@ -50,6 +56,78 @@ button:hover{
 #result{
     margin-top: 25px;
 }
-body{
-    background-image:url("blue-snow.png")
+
+red{
+    color: red;
+}
+
+yellow{
+    color: rgb(255, 255, 0);
+}
+
+blue{
+    color: rgb(0, 0, 255);
+}
+
+.rank_s{
+    background-color: white;
+    max-width: 500px;
+    border: .5px solid black;
+    padding: 10px;
+    text-align: center;
+    font-size: 30px;
+    z-index: -1;
+}
+
+.add_to_match{
+    margin-left: 20px;
+    margin: 0;
+    margin-top: 5px;
+}
+
+#rank{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#competitive{
+    width: 170px;
+    overflow: hidden;
+    position: fixed;
+    right: 0;
+    top: 30%;
+    margin-left: 20px;
+    margin: 0;
+    margin-top: 5px;
+    padding: 50px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 4px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    z-index: 9999;
+    display: none;
+    background-color: white;
+    height: 100px;
+    transition: width .7s;
+}
+
+#competitive *{
+    z-index: 9999;
+}
+
+#setInOrOut{
+    position: fixed;
+    right: inherit;
+}
+
+#btn_triangle_outOrIn{
+    position: absolute;
+    left: 30px;
+    top: 30%;
+    transform: rotate(-90deg);
+    width: 35px;
+    height: 35px;
+    z-index: 9999;
+    transition: left .7s, transform .7s;
+    background: url(triangle.svg) no-repeat center;
 }

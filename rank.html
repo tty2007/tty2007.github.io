@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>排行</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <center>
+        <button onclick="print_rank();" id="btn" style="margin-top: 100px;margin-bottom: 100px;">加载排行榜</button>
+    </center>
+    <div id="rank" style="margin-top: 100px;margin-bottom: 100px;z-index:1;"></div>
+    <div id="competitive">
+        <div id="btn_triangle_outOrIn"></div>
+        <div id="com_div">
+            <div id="c-1"></div>
+            <div id="c-2"></div>
+            <button id="comp" onclick="comp_mark_two()">比较</button>
+            <button id="clear" onclick="clear_comp()">清空</button>
+        </div>
+    </div>
+    <script src="rank.js"></script>
+    <script>
+       console.log("startup");
+    </script>
+</body>
+</html>
