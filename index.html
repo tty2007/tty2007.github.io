@@ -4,45 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>成绩查询页</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <title>成绩查询</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="nav.css">
 </head>
 <body>
-    <marquee onmouseover="this.stop()" onmouseout="this.start()" behavior="alternate" direction="left">
-        <font>因暂时并无考试故无成绩查询请知晓</font>
-    </marquee>
-    <center>
-        <input type="text" id="name" placeholder="学生姓名">
-        <br>
-        <button id="get">获取</button>
-        <br>
-        <div id="result">
-            <table id="table">
-                <tr>
-                    <td>姓名</td>
-                    <td>语文</td>
-                    <td>数学</td>
-                    <td>英语</td>
-                    <td>历史</td>
-                    <td>政治</td>
-                    <td>物理</td>
-                    <td>化学</td>
-                </tr>
-                <tr>
-                    <td id="sname">--</td>
-                    <td id="chin">--</td>
-                    <td id="math">--</td>
-                    <td id="engl">--</td>
-                    <td id="hist">--</td>
-                    <td id="posi">--</td>
-                    <td id="phis">--</td>
-                    <td id="chim">--</td>
-                </tr>
-            </table>
-            <button onclick="if(sname.innerHTML!='--'){copyTable();alert('复制成功。');}else{alert('复制失败，请先查询成绩。')}">复制表格</button>
-        </div>
-    </center>
-    <script src="index.js"></script>
+    <div class="nav_title_bar">
+        <img id="navImg">
+        <font id="navText">&nbsp;成绩查询</font>
+        <center>
+            <div class="btns">
+                <button class="nav_btn now" onclick="top.location = 'index.html'">主页</button>
+                <button class="nav_btn" onclick="top.location = 'get.html'">查询</button>
+                <button class="nav_btn" onclick="top.location = 'rank.html'">排行榜</button>
+            </div>
+        </center>
+    </div>
+    <div class="block"></div>
 </body>
 </html>

@@ -6,7 +6,7 @@ function mark_calc(mark){
     if(mark<500) return "你可长点心吧你";
 }
 
-var SubList = ["语文","数学","英语","历史","政治","物理","化学"]
+var SubList = ["中文","数学","英语","历史","政治","物理","化学"]
 
 function subject_compare(marks=[0,0,0,0,0,0,0]){
     try{
@@ -38,6 +38,7 @@ function getDifference(f,s){
 }
 
 function gen(){
+    $("#gen").remove();
     chart1();
     $("#c2").append(`<center>${people1.name}: ${mark_calc(people1.mark)}</center><hr>`);
     chart2();
@@ -86,13 +87,13 @@ function chart1(){
        type: 'pie',
        name: `总分: ${people1.mark}, 分数占比`,
        data: [
-          ['语文', chi1],
-          ['数学', mth1],
-          ['英语', eng1],
-          ['历史', his1],
-          ['政治', pol1],
-          ['物理', phy1],
-          ['化学', che1]
+          [`中文(${chi1}分)`, chi1],
+          [`数学(${mth1}分)`, mth1],
+          [`英语(${eng1}分)`, eng1],
+          [`历史(${his1}分)`, his1],
+          [`政治(${pol1}分)`, pol1],
+          [`物理(${phy1}分)`, phy1],
+          [`化学(${che1}分)`, che1]
        ]
     }];     
        
@@ -138,13 +139,13 @@ function chart2(){
        type: 'pie',
        name: `总分: ${people2.mark}, 分数占比`,
        data: [
-          ['语文', chi2],
-          ['数学', mth2],
-          ['英语', eng2],
-          ['历史', his2],
-          ['政治', pol2],
-          ['物理', phy2],
-          ['化学', che2]
+          [`中文(${chi2}分)`, chi2],
+          [`数学(${mth2}分)`, mth2],
+          [`英语(${eng2}分)`, eng2],
+          [`历史(${his2}分)`, his2],
+          [`政治(${pol2}分)`, pol2],
+          [`物理(${phy2}分)`, phy2],
+          [`化学(${che2}分)`, che2]
        ]
     }];     
        

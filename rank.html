@@ -7,8 +7,21 @@
     <title>排行</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="nav.css">
 </head>
 <body>
+    <div class="nav_title_bar">
+        <img id="navImg">
+        <font id="navText">&nbsp;成绩查询</font>
+        <center>
+            <div class="btns">
+                <button class="nav_btn" onclick="top.location = 'index.html'">主页</button>
+                <button class="nav_btn" onclick="top.location = 'get.html'">查询</button>
+                <button class="nav_btn now" onclick="top.location = 'rank.html'">排行榜</button>
+            </div>
+        </center>
+    </div>
+    <div class="block"></div>
     <center>
         <button onclick="print_rank();" id="btn" style="margin-top: 100px;margin-bottom: 100px;">加载排行榜</button>
     </center>
