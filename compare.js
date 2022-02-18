@@ -80,7 +80,7 @@ function rank_arr_init(){
         <h1>被对比人1</h1>
         <div id="p1Name">姓名: ${people1.name}</div>
         <div id="p1Mark">总分: ${people1.mark}</div>
-        <div id="p1Chi">语文: ${chi1}</div>
+        <div id="p1Chi">中文: ${chi1}</div>
         <div id="p1Mth">数学: ${mth1}</div>
         <div id="p1Eng">英语: ${eng1}</div>
         <div id="p1His">历史: ${his1}</div>
@@ -91,7 +91,7 @@ function rank_arr_init(){
         <h1>被对比人2</h1>
         <div id="p2Name">姓名: ${people2.name}</div>
         <div id="p2Mark">总分: ${people2.mark}</div>
-        <div id="p2Chi">语文: ${chi2}</div>
+        <div id="p2Chi">中文: ${chi2}</div>
         <div id="p2Mth">数学: ${mth2}</div>
         <div id="p2Eng">英语: ${eng2}</div>
         <div id="p2His">历史: ${his2}</div>

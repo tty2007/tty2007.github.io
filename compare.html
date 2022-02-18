@@ -8,8 +8,21 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="compare.css">
     <script src="https://code.highcharts.com/highcharts.js"></script>
+    <link rel="stylesheet" href="nav.css">
 </head>
 <body>
+    <div class="nav_title_bar">
+        <img id="navImg">
+        <font id="navText">&nbsp;成绩查询</font>
+        <center>
+            <div class="btns">
+                <button class="nav_btn" onclick="top.location = 'index.html'">主页</button>
+                <button class="nav_btn" onclick="top.location = 'get.html'">查询</button>
+                <button class="nav_btn now">对比</button>
+            </div>
+        </center>
+    </div>
+    <div class="block"></div>
     <div id="none" style="font-size: 15px;font-family: 'Courier New';">
         url format error
         <br>

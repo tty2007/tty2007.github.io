@@ -32,8 +32,8 @@ button:hover{
 }
 
 #c1{
-    position: fixed;
-    top: 45%;
+    position: absolute;
+    top: 525px;
     transform: translateY(-50%);
     left: 20px;
     width: calc(50vw - 40px);
