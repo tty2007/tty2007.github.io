@@ -2,9 +2,14 @@
     width: 80vw;
     border: 1px solid #ccc;
 }
-.div{
-    color:rgb(255, 0, 157);
-    position:absolute;
-    top:0;
-    left:0;
+div.fixed{
+    position:fixed;
+    bottom: 0px;
+    left: 48%;
+}
+a:active{
+    color: rgb(218, 179, 255);
+}
+a{
+    color:rgb(255, 0, 0);
 }

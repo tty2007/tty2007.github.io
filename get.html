@@ -11,8 +11,8 @@
 </head>
 <body>
     <div class="nav_title_bar">
-        <img id="navImg">
-        <font id="navText">&nbsp;成绩查询</font>
+        <img id="navImg" src="官网.png">
+        <font id="navText">&nbsp;成绩查询页</font>
         <center>
             <div class="btns">
                 <button class="nav_btn" onclick="top.location = 'index.html'">主页</button>
@@ -22,10 +22,9 @@
         </center>
     </div>
     <div class="block"></div>
-    <!--
-    <marquee onmouseover="this.stop()" onmouseout="this.start()" behavior="alternate" direction="left">
-        <font>因暂时并无考试故无成绩查询请知晓</font>
-    </marquee>-->
+    <marquee onmouseover="this.stop()" onmouseout="this.start()" behavior="scroll" direction="left" scrollamount="10" >
+        <font size="6" color="#ff0000" face=宋体>因暂时并无考试故无成绩查询请知晓 目前数据均为测试数据</font>
+    </marquee>
     <center>
         <input type="text" id="name" placeholder="学生姓名">
         <br>
@@ -56,7 +55,9 @@
             </table>
             <button onclick="if(sname.innerHTML!='--'){copyTable();alert('复制成功。');}else{alert('复制失败，请先查询成绩。')}">复制表格</button>
         </div>
+    <h4>注:此页面仅供查询自己成绩使用,不可另作他用</h4>
     </center>
+    
     <script src="index.js"></script>
 </body>
 </html>
