@@ -43,6 +43,10 @@
             <font style="font-size: 5px;color:rgba(255, 255, 255, 0.01);">With Star.</font>
         </center>
     </div>
+    
+    <div id="jsi-cherry-container" class="container"></div>
+    <canvas id="fireworks"></canvas>
+
     <div id="loading">
         <div class="inner">
             <img id="doge" src="doge.gif">
@@ -50,11 +54,6 @@
             加载中
         </div>
     </div>
-    <div id="jsi-cherry-container" class="container"></div>
-    <canvas id="fireworks"></canvas>
-    <script src="flower.js"></script>
-    <script src="fireworks.js"></script>
-    <script src="fps.js"></script>
     <script>
         setTimeout(function() {
             $("#loading").css("opacity", "0");
@@ -63,5 +62,9 @@
             }, 1000);
         }, 3000);
     </script>
+    <script src="flower.js"></script>
+    <script src="fireworks.js"></script>
+    <script src="fps.js"></script>
+    
 </body>
 </html>

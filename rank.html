@@ -38,5 +38,20 @@
     <script>
        console.log("startup");
     </script>
+    <div id="loading">
+        <div class="inner">
+            <img id="doge" src="doge.gif">
+            <br>
+            加载中
+        </div>
+    </div>
+    <script>
+        setTimeout(function() {
+            $("#loading").css("opacity", "0");
+            setTimeout(function() {
+                $("#loading").hide();
+            }, 1000);
+        }, 3000);
+    </script>
 </body>
 </html>

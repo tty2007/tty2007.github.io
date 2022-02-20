@@ -56,7 +56,21 @@
         </div>
     <h4>注:此页面仅供查询自己成绩使用,不可另作他用</h4>
     </center>
-    
+    <div id="loading">
+        <div class="inner">
+            <img id="doge" src="doge.gif">
+            <br>
+            加载中
+        </div>
+    </div>
+    <script>
+        setTimeout(function() {
+            $("#loading").css("opacity", "0");
+            setTimeout(function() {
+                $("#loading").hide();
+            }, 1000);
+        }, 3000);
+    </script>
     <script src="index.js"></script>
 </body>
 </html>

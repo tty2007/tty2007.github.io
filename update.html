@@ -5,8 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>更新日志</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="nav.css">
 </head>
 <body>
+  <div class="nav_title_bar">
+      <div id="navImg"></div>
+      <center>
+          <div class="btns">
+              <button class="nav_btn now" onclick="top.location = 'index.html'">主页</button>
+              <button class="nav_btn" onclick="top.location = 'get.html'">查询</button>
+              <button class="nav_btn" onclick="top.location = 'rank.html'">排行榜</button>
+          </div>
+      </center>
+  </div>
+  <div class="block"></div>
   <div>
       <h2>1.0.0版本更新公告</h2>
         <div>
@@ -38,7 +51,21 @@
             <h4>修复了手机端上图表显示不全的问题</h4>
         </div>
   </div>
-  
+  <div id="loading">
+    <div class="inner">
+        <img id="doge" src="doge.gif">
+        <br>
+        加载中
+    </div>
+</div>
+<script>
+    setTimeout(function() {
+        $("#loading").css("opacity", "0");
+        setTimeout(function() {
+            $("#loading").hide();
+        }, 1000);
+    }, 3000);
+</script>
 
 </body>
 </html>
