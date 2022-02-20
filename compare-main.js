@@ -177,7 +177,7 @@ function chart3(){
          size: '80%'
       },
       xAxis: {
-         categories: ['中文', '数学', '英语', '历史',
+         categories: ['中文', '数学', '英语', '历史', '政治',
                    '物理', '化学'],
          tickmarkPlacement: 'on',
          lineWidth: 0
