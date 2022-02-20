@@ -3,19 +3,19 @@
 }
 
 #navText{
-    position: relative;
-    top: -15px;
     font-size: 30px;
     font-weight: bold;
     height: 60px;
 }
 
 #navImg{
-    width:  700px;
-    height: 70px;
-    
-    margin-top: 15px;
-    margin-left: 300px;
+    border: 0px solid #ccc;
+    width:  95px;
+    height: 95px;
+    background: url(icon.png);
+    background-size: cover;
+    background-position: center;
+    margin-left: 20px;
 }
 
 .nav_title_bar{
@@ -23,8 +23,8 @@
     top: 0;
     left: 0;
     width: 100vw;
-    z-index: 99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999;
-    background-color: white;
+    z-index: 999999999999;
+    background: linear-gradient(45deg, #0072ff, #00c6ff);
     height: 100px;
 }
 
@@ -32,7 +32,7 @@
     max-width: 150px;
     min-width: 100px;
     height: 50px;
-    border: none;
+    border: none !important;
     background-color: #333;
     outline: none;
     transition: .3s;
@@ -50,7 +50,7 @@
 
 .btns{
     position: fixed;
-    top: 90px;
+    top: 100px;
     left: 0;
     width: 100vw;
     background-color: #333;
@@ -64,10 +64,49 @@
 .block{
     height: 150px;
 }
-#bantu{
-    width:500px;
-    height:500px;
+
+a:active{
+    color: rgb(218, 179, 255);
 }
 
+a:hover{
+    color: rgb(218, 179, 255);
+}
 
+a{
+    transition: .3s;
+    color:white;
+    text-decoration: none;
+}
 
+.footer{
+    position:absolute;
+    bottom: 0;
+    left: 0;
+    background: #333;
+    height: 120px;
+    width: calc(100vw - 100px);
+    padding: 50px;
+}
+
+font{
+    color: white;
+    font-size: 30px;
+}
+
+.copy{
+    color: white;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.doge{
+    transition: .3s;
+}
+
+.doge:hover{
+    cursor: pointer;
+    transform: scale(2);
+}

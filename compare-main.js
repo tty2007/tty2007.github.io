@@ -38,6 +38,7 @@ function getDifference(f,s){
 }
 
 function gen(){
+   resized();
     $("#gen").remove();
     chart1();
     $("#c2").append(`<center>${people1.name}: ${mark_calc(people1.mark)}</center><hr>`);
@@ -53,6 +54,10 @@ function gen(){
     <br>
     ${people1.name}与${people2.name}的最低分相差: ${getDifference(subject_compare(marks=[chi1,mth1,eng1,his1,pol1,phy1,che1])[0][1],subject_compare(marks=[chi2,mth2,eng2,his2,pol2,phy2,che2])[0][1])}
     </center><hr>`);
+    $("#c2").append(`<div id="chart3_L"></div>`)
+    chart3();
+    $("#c2").append(`<div id="chart4_L"></div>`)
+    chart4();
 }
 
 function chart1(){
@@ -156,4 +161,92 @@ function chart2(){
     json.series = series;
     json.plotOptions = plotOptions;
     $('#container2').highcharts(json);
+}
+
+function chart3(){
+   var chart = Highcharts.chart('chart3_L', {
+      chart: {
+         polar: true,
+         type: 'area'
+      },
+      title: {
+         text: '分数对比蜘蛛图',
+         x: -80
+      },
+      pane: {
+         size: '80%'
+      },
+      xAxis: {
+         categories: ['中文', '数学', '英语', '历史',
+                   '物理', '化学'],
+         tickmarkPlacement: 'on',
+         lineWidth: 0
+      },
+      yAxis: {
+         gridLineInterpolation: 'polygon',
+         lineWidth: 0,
+         min: 0
+      },
+      tooltip: {
+         shared: true,
+         pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.0f}分</b><br/>'
+      },
+      legend: {
+         align: 'right',
+         verticalAlign: 'top',
+         y: 70,
+         layout: 'vertical'
+      },
+      series: [{
+         name: `${people1.name}`,
+         data: [chi1, mth1, eng1, his1, pol1, phy1, che1],
+         pointPlacement: 'on'
+      }, {
+         name: `${people2.name}`,
+         data: [chi2, mth2, eng2, his2, pol2, phy2, che2],
+         pointPlacement: 'on'
+      }]
+   });
+}
+
+function chart4(){
+   var chart = Highcharts.chart('chart4_L',{
+      chart: {
+         type: 'column'
+      },
+      title: {
+         text: '分数对比柱状图'
+      },
+      xAxis: {
+         categories: ["中文","数学","英语","历史","政治","物理","化学"],
+         crosshair: true
+      },
+      yAxis: {
+         min: 0,
+         title: {
+            text: '成绩 (%)'
+         }
+      },
+      tooltip: {
+         // head + 每个 point + footer 拼接成完整的 table
+         headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+         pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+         '<td style="padding:0"><b>{point.y:.0f} %</b></td></tr>',
+         footerFormat: '</table>',
+         shared: true,
+         useHTML: true
+      },
+      plotOptions: {
+         column: {
+            borderWidth: 0
+         }
+      },
+      series: [{
+         name: people1.name,
+         data: [chi1/chi*100, mth1/mth*100, eng1/eng*100, his1/his*100, pol1/pol*100, phy1/phy*100, che1/che*100]
+      }, {
+         name: people2.name,
+         data: [chi2/chi*100, mth2/mth*100, eng2/eng*100, his2/his*100, pol2/pol*100, phy2/phy*100, che2/che*100]
+      }]
+   });
 }

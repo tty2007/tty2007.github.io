@@ -73,6 +73,13 @@ function rank_arr_init(){
                 che2 = data[i].chemistry;
             }
         }
+        chi = json.full.chinese;
+        mth = json.full.math;
+        eng = json.full.english;
+        his = json.full.history;
+        pol = json.full.politics;
+        phy = json.full.physics;
+        che = json.full.chemistry;
     });
 
     setTimeout(function(){
@@ -98,6 +105,7 @@ function rank_arr_init(){
         <div id="p2Pol">政治: ${pol2}</div>
         <div id="p2Phy">物理: ${phy2}</div>
         <div id="p2Chi">化学: ${che2}</div>
+        <hr>
         `);
 
         $("#c2").append(`

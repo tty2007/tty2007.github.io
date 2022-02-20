@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
+    
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>成绩查询</title>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="nav.css">
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
+    
+    <font id="fps"></font>
     <div class="nav_title_bar">
-        <img id="navImg" src="官网.png">
-        <font id="navText">&nbsp;首页</font>
+        <div id="navImg"></div>
         <center>
             <div class="btns">
                 <button class="nav_btn now" onclick="top.location = 'index.html'">主页</button>
@@ -21,12 +25,43 @@
         </center>
     </div>
     <div class="block"></div>
-    <div class="fixed">
-        <a href="update.html">更新日志</a>
+    <div class="footer">
+        <div class="link">
+            <font>链接: </font>
+            <a href="update.html">更新日志</a>
+            <a href="get.html">查询成绩</a>
+            <a href="rank.html">排行榜</a>
+            <a href="https://thezen.zone/">TheZen</a>
+        </div>
+        <center class="copy">
+            &copy;
+            刘桐宇
+            <img src="doge.png" height="20px" class="doge" onclick="$('#fireworks').show();fireworkon();stopFireworks=false;$('#fireworks').css('opacity', '1');">
+            <img src="doge.png" height="20px" class="doge" onclick="top.location = 'stars.html'">
+            <img src="doge.png" height="20px" class="doge" onclick="$('#jsi-cherry-container').show();$('#jsi-cherry-container').css('opacity', '1');RENDERER.init();">, 2022.
+            <br>
+            <font style="font-size: 5px;color:rgba(255, 255, 255, 0.01);">With Star.</font>
+        </center>
     </div>
-    <center>
-        <img id="bantu" src="九二.png">
-    </center>
-    
+    <div id="loading">
+        <div class="inner">
+            <img id="doge" src="doge.gif">
+            <br>
+            加载中
+        </div>
+    </div>
+    <div id="jsi-cherry-container" class="container"></div>
+    <canvas id="fireworks"></canvas>
+    <script src="flower.js"></script>
+    <script src="fireworks.js"></script>
+    <script src="fps.js"></script>
+    <script>
+        setTimeout(function() {
+            $("#loading").css("opacity", "0");
+            setTimeout(function() {
+                $("#loading").hide();
+            }, 1000);
+        }, 3000);
+    </script>
 </body>
 </html>

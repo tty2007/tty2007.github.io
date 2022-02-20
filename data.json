@@ -513,13 +513,12 @@
         
     ],
     "full":{
-        "chinese":150,
-        "math":150,
-        "english":150,
+        "chinese":120,
+        "math":120,
+        "english":120,
         "history":100,
         "politics":100,
         "physics":100,
-        "chemistry":100,
-        "total":850
+        "chemistry":100
     }
 } 

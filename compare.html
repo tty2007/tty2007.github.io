@@ -8,12 +8,12 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="compare.css">
     <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
     <link rel="stylesheet" href="nav.css">
 </head>
 <body>
     <div class="nav_title_bar">
-        <img id="navImg">
-        <font id="navText">&nbsp;成绩查询</font>
+        <div id="navImg"></div>
         <center>
             <div class="btns">
                 <button class="nav_btn" onclick="top.location = 'index.html'">主页</button>
@@ -34,12 +34,14 @@
             <center id="c1c"></center>
         </div>
         <div class="line"></div>
-        <div id="c2">
-            
-        </div>
+        <center>
+            <div id="c2">
+            </div>
+        </center>
     </div>
     <button onclick="rank_arr_init()" id="check">获取分数</button>
     <script src="compare.js"></script>
     <script src="compare-main.js"></script>
+    <script src="compare-screen.js"></script>
 </body>
 </html>
