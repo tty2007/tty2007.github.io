@@ -81,7 +81,6 @@ a{
 
 .footer{
     position:absolute;
-    bottom: 0;
     left: 0;
     background: #333;
     height: 120px;
@@ -134,4 +133,9 @@ font{
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+}
+
+hr{
+    border: none;
+    border-bottom: 1px solid #ccc;
 }
