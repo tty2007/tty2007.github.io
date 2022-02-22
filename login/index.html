@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+    <link rel="stylesheet" href="../nav.css">
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="nav_title_bar">
+        <div id="navImg"></div>
+        <center>
+            <div class="btns">
+                <button class="nav_btn" onclick="top.location = '../index.html'">主页</button>
+                <button class="nav_btn" onclick="top.location = '../get.html'">查询</button>
+                <button class="nav_btn now">登录</button>
+            </div>
+        </center>
+    </div>
+    <div class="block"></div>
+    <center id="c">
+        <input type="text" name="登录名" id="id" style="margin-top: 50px;" placeholder="账户">
+        <br>
+        <input type="password" name="密码" id="pwd" style="margin-top: 10px;" placeholder="密码">
+        <br>
+        <br>
+        <button id="login" onclick="login();">登录</button>
+    </center>
+    <script src="login.js"></script>
+    <script src="../message.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> </title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <script>
+        try{
+            url = window.location.href;
+            url = url.split("?")[1];
+            action = url.split("&")[0].split("=")[1];
+            directTo = url.split("&")[3].split("=")[1];
+            token = url.split("&")[4].split("=")[1];
+            if(action == "browserLogin"){
+                id = url.split("&")[1].split("=")[1];
+                pwd = url.split("&")[2].split("=")[1];
+                $.getJSON("pass.json", function(data){
+                    for(let i=0;i<data.length;i++){
+                        if(data[i].username == id && data[i].password == pwd){
+                            localStorage.setItem("username", id);
+                            localStorage.setItem("login", "true");
+                            window.location.href = `${directTo}?token=${token}&login=t`;
+                        }
+                    }
+                });
+            }
+        }
+        catch(err){
+            if(err == `TypeError: Cannot read properties of undefined (reading 'split')`){
+                if(action == "browserLogout"){
+                    localStorage.removeItem("username");
+                    localStorage.removeItem("login");
+                    if(localStorage.getItem('username')==null && localStorage.getItem('login')==null){
+                        console.log("退出成功");
+                        directTo = url.split("&")[1].split("=")[1];
+                        location.href=directTo;
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

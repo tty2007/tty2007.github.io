@@ -8,6 +8,7 @@
     <title>九二官网</title>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="font.css">
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
@@ -67,8 +68,7 @@
             <br>
             <i style="width: 80vw;">
                 ^^^长按狗头放大^^^
-                <br>
-                狗头表情，常见于wb等社区的评论区、wx等聊天软件。网友在评论中说一些反话，来表达与所说之话完全相反的意思时加到文末，是友军的意思。<img draggable="false" src="doge.png" height="20px" class="doge"></i>
+                </i>
         </text>
         <br><br><br>
         <hr>
@@ -111,6 +111,39 @@
     <script src="flower.js"></script>
     <script src="fireworks.js"></script>
     <script src="fps.js"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script>
+
+        const options = {
+            bottom: '64px', // default: '32px'
+            right: 'unset', // default: '32px'
+            left: '32px', // default: 'unset'
+            time: '.3s', // default: '0.3s'
+            mixColor: '#fff', // default: '#fff'
+            backgroundColor: '#fff',  // default: '#fff'
+            buttonColorDark: '#070707',  // default: '#100f2c'
+            buttonColorLight: '#fff', // default: '#fff'
+            saveInCookies: true, // default: true,
+            label: '✨', // default: ''
+            autoMatchOsTheme: true // default: true
+        }
+
+        const darkmode = new Darkmode(options);
+        darkmode.showWidget();
+        function addDarkmodeWidget() {
+          new Darkmode().showWidget();
+        }
+        window.addEventListener('load', addDarkmodeWidget);
+
+      </script>
+      <script>
+          setTimeout(function() {
+                const isDarkTheme = window.matchMedia("(prefers-color-scheme: dark)"); // 是深色
+                if (isDarkTheme.matches) { // 是深色
+                    darkmode.button.click();
+                    console.log("yes");
+                }
+            }, 2000);
+      </script>
 </body>
 </html>
