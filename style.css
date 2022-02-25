@@ -131,3 +131,7 @@ blue{
     transition: left .7s, transform .7s;
     background: url(triangle.svg) no-repeat center;
 }
+
+font{
+    color: white;
+}

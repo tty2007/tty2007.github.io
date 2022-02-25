@@ -75,7 +75,6 @@
         </div>
         <textarea name="result" id="result" readonly>点击此处直接复制</textarea>
     </center>
-    
     <script>
         function getid(id){
             return document.getElementById(id);
@@ -115,9 +114,9 @@
     "physics":${phis.value},
     "chemistry":${chim.value}
 }`
-            alert('提交成功');
+            message('提交成功');
             }else{
-                alert('请填写完整信息');
+                message('请填写完整信息');
             }
         }
 
@@ -126,18 +125,20 @@
                 try{
                     result.select();
                     document.execCommand('copy');
-                    alert('复制成功，请粘贴到 data.json 文件中。');
+                    message('复制成功，请粘贴到 data.json 文件中。');
                 }catch(err){
-                    alert('复制失败，请手动复制。');
+                    message('复制失败，请手动复制。');
                     console.error(err);
                 }
             }
             else{
-                alert('请先点击提交');
+                message('请先点击提交');
             }
             
         }
     </script>
+    <div id="message"></div>
+    <link rel="stylesheet" href="message.css">
     <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
     <script>
         const options = {
@@ -161,5 +162,6 @@
         }
         window.addEventListener('load', addDarkmodeWidget);
       </script>
+      <script src="message.js"></script>
 </body>
 </html>

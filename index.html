@@ -17,6 +17,8 @@
     <font id="fps"></font>
     <div class="nav_title_bar">
         <div id="navImg"></div>
+        <div id="login"></div>
+        <script src="login/add_btn.js"></script>
         <center>
             <div class="btns">
                 <button class="nav_btn now" onclick="top.location = 'index.html'">主页</button>
@@ -52,8 +54,10 @@
         <hr>
         **按钮**
         <br>
-        <button id="button">按钮</button>
-        <br><br>
+        <button id="button" onclick="message('按钮按下')">按钮</button>
+        <br><i style="width: 80vw;">
+            ^^^尝试点击按钮^^^
+        </i><br><br>
         <text style="font-size: 20px;">简约、美观</text>
         <br><br><br>
         <hr>
@@ -100,6 +104,8 @@
             加载中
         </div>
     </div>
+    <div id="message"></div>
+    <link rel="stylesheet" href="message.css">
     <script>
         setTimeout(function() {
             $("#loading").css("opacity", "0");
@@ -145,5 +151,6 @@
                 }
             }, 2000);
       </script>
+      <script src="message.js"></script>
 </body>
 </html>

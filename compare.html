@@ -14,6 +14,8 @@
 <body>
     <div class="nav_title_bar">
         <div id="navImg"></div>
+        <div id="login"></div>
+        <script src="login/add_btn.js"></script>
         <center>
             <div class="btns">
                 <button class="nav_btn" onclick="top.location = 'index.html'">主页</button>
@@ -47,6 +49,8 @@
             加载中
         </div>
     </div>
+    <div id="message"></div>
+    <link rel="stylesheet" href="message.css">
     <script>
         setTimeout(function() {
             $("#loading").css("opacity", "0");
@@ -58,5 +62,6 @@
     <script src="compare.js"></script>
     <script src="compare-main.js"></script>
     <script src="compare-screen.js"></script>
+    <script src="message.js"></script>
 </body>
 </html>

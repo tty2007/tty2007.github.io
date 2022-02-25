@@ -8,6 +8,29 @@
     <link rel="stylesheet" href="../nav.css">
     <link rel="stylesheet" href="../style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="../message.css">
+    <style>
+        .form{
+            min-width: 250px;
+            max-width: 800px;
+            padding: 20px;
+            margin-top: 5px;
+            padding-top: 50px;
+            max-height: 350px;
+            height: 80vh;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            backdrop-filter: blur(6px);
+        }
+        body{
+            background-image: url(https://images.unsplash.com/photo-1553095066-5014bc7b7f2d);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+
+        }
+    </style>
 </head>
 <body>
     <div class="nav_title_bar">
@@ -21,14 +44,17 @@
         </center>
     </div>
     <div class="block"></div>
-    <center id="c">
-        <input type="text" name="登录名" id="id" style="margin-top: 50px;" placeholder="账户">
-        <br>
-        <input type="password" name="密码" id="pwd" style="margin-top: 10px;" placeholder="密码">
-        <br>
-        <br>
-        <button id="login" onclick="login();">登录</button>
+    <center>
+        <div class="form" id="c">
+            <input type="text" name="登录名" id="id" style="margin-top: 50px;" placeholder="账户">
+            <br>
+            <input type="password" name="密码" id="pwd" style="margin-top: 10px;" placeholder="密码">
+            <br>
+            <br>
+            <button id="login" onclick="login();">登录</button>
+        </div>
     </center>
+    <div id="message"></div>
     <script src="login.js"></script>
     <script src="../message.js"></script>
 </body>

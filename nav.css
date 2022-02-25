@@ -24,7 +24,7 @@
     left: 0;
     width: 100vw;
     z-index: 999999999999;
-    background: linear-gradient(45deg, #0072ff, #00c6ff);
+    background: linear-gradient(45deg, #0073ff, #00c6ff);
     height: 100px;
 }
 
@@ -33,7 +33,7 @@
     min-width: 100px;
     height: 50px;
     border: none !important;
-    background-color: #333;
+    background-color: rgb(0, 0, 0, 0);
     outline: none;
     transition: .3s;
     color: white;
@@ -53,7 +53,8 @@
     top: 100px;
     left: 0;
     width: 100vw;
-    background-color: #333;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(6px);
 }
 
 .now{
@@ -138,4 +139,26 @@ font{
 hr{
     border: none;
     border-bottom: 1px solid #ccc;
+}
+
+#login-btn{
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    user-select: none;
+    min-width:100px;
+    height:30px;
+    border:1px solid #ccc;
+    font-size: 14px;
+    border-radius:5px;
+    margin-top: 15px;
+    outline: none;
+    background: #fff;
+    transition: .3s;
+}
+
+#login-btn:hover{
+    cursor: pointer;
+    background-color: rgb(192, 247, 255);
+    color: black;
 }

@@ -12,6 +12,8 @@
 <body>
     <div class="nav_title_bar">
         <div id="navImg"></div>
+        <div id="login"></div>
+        <script src="login/add_btn.js"></script>
         <center>
             <div class="btns">
                 <button class="nav_btn" onclick="top.location = 'index.html'">主页</button>
@@ -23,6 +25,7 @@
     <div class="block"></div>
     <center>
         <button onclick="print_rank();" id="btn" style="margin-top: 100px;margin-bottom: 100px;">加载排行榜</button>
+        <div id="text"></div>
     </center>
     <div id="rank" style="margin-top: 100px;margin-bottom: 100px;z-index:1;"></div>
     <div id="competitive">
@@ -45,6 +48,8 @@
             加载中
         </div>
     </div>
+    <div id="message"></div>
+    <link rel="stylesheet" href="message.css">
     <script>
         setTimeout(function() {
             $("#loading").css("opacity", "0");
@@ -85,5 +90,6 @@
               }
           }, 2000);
     </script>
+    <script src="message.js"></script>
 </body>
 </html>
