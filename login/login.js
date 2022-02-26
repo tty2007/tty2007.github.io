@@ -12,8 +12,8 @@ try{
     }
 
     else if(location.href.includes('token')){
-        $('#id').hide();
-        $('#pwd').hide();
+        $('#idc').hide();
+        $('#pwdc').hide();
         $('#login').hide();
         gtoken = location.href.split('?token=')[1].split('&')[0]
         if(gtoken==localStorage.getItem('token')){
@@ -23,7 +23,12 @@ try{
             }
         }
         else{
-            location.href='./index.html';
+            try{
+                location.href='./index.html'+location.href.split('?dt=')[1];
+            }
+            catch{
+                location.href='./index.html';
+            }
         }
     }
 
@@ -32,11 +37,11 @@ try{
         const pwd = $('#pwd');
         var login = function(){
             if(id.val() == ''){
-                message("请输入账号","alert");
+                message("请输入账号");
                 return false;
             }
             if(pwd.val() == ''){
-                message("请输入密码","alert");
+                message("请输入密码");
                 return false;
             }
             
