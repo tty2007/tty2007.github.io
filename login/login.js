@@ -36,11 +36,11 @@ try{
         const id =  $('#id');
         const pwd = $('#pwd');
         var login = function(){
-            if(id.val() == ''){
+            if(id.value == ''){
                 message("请输入账号");
                 return false;
             }
-            if(pwd.val() == ''){
+            if(pwd.value == ''){
                 message("请输入密码");
                 return false;
             }
@@ -48,7 +48,7 @@ try{
             // get json string from pass.json
             $.getJSON('pass.json', function(json){
                 for(let i=0;i<json.length;i++){
-                    if(id.val() == json[i].username && pwd.val() == json[i].password){
+                    if(id.value == json[i].username && pwd.value == json[i].password){
                         // generate token
                         var token = '';
                         for(let j=0;j<32;j++){
@@ -56,7 +56,7 @@ try{
                         }
                         if(location.href.split('?dt=')[1] != undefined) dt=location.href.split('?dt=')[1];
                         localStorage.setItem('token', token);
-                        top.location = `redirect.html?action=browserLogin&id=${id.val()}&pwd=${pwd.val()}&directTo=${dt}&token=${token}`;
+                        top.location = `redirect.html?action=browserLogin&id=${id.value}&pwd=${pwd.value}&directTo=${dt}&token=${token}`;
                         return true;
                     }
                     else{
