@@ -66,7 +66,7 @@
         <img draggable="false" src="doge.gif" draggable="false" style="width: 80vw; max-width: 700px;">
         <br><br>
         <text style="font-size: 20px;">
-            <img draggable="false" src="doge.gif" height="20px" class="doge" onclick="$('#fireworks').show();fireworkon();stopFireworks=false;$('#fireworks').css('opacity', '1');">
+            <img draggable="false" src="doge.gif" height="20px" class="doge" onclick="top.location = 'fireworks.html'">
             <img draggable="false" src="doge.gif" height="20px" class="doge" onclick="top.location = 'stars.html'">
             <img draggable="false" src="doge.gif" height="20px" class="doge" onclick="$('#jsi-cherry-container').show();$('#jsi-cherry-container').css('opacity', '1');RENDERER.init();">
             <br>
@@ -86,7 +86,7 @@
         <center class="copy">
             &copy;
             刘桐宇
-            <img draggable="false" src="doge.png" height="20px" class="doge" onclick="$('#fireworks').show();fireworkon();stopFireworks=false;$('#fireworks').css('opacity', '1');">
+            <img draggable="false" src="doge.png" height="20px" class="doge" onclick="top.location = 'fireworks.html'">
             <img draggable="false" src="doge.png" height="20px" class="doge" onclick="top.location = 'stars.html'">
             <img draggable="false" src="doge.png" height="20px" class="doge" onclick="$('#jsi-cherry-container').show();$('#jsi-cherry-container').css('opacity', '1');RENDERER.init();">, 2022.
             <br>
@@ -117,40 +117,6 @@
     <script src="flower.js"></script>
     <script src="fireworks.js"></script>
     <script src="fps.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
-    <script>
-
-        const options = {
-            bottom: '64px', // default: '32px'
-            right: 'unset', // default: '32px'
-            left: '32px', // default: 'unset'
-            time: '.3s', // default: '0.3s'
-            mixColor: '#fff', // default: '#fff'
-            backgroundColor: '#fff',  // default: '#fff'
-            buttonColorDark: '#070707',  // default: '#100f2c'
-            buttonColorLight: '#fff', // default: '#fff'
-            saveInCookies: true, // default: true,
-            label: '✨', // default: ''
-            autoMatchOsTheme: true // default: true
-        }
-
-        const darkmode = new Darkmode(options);
-        darkmode.showWidget();
-        function addDarkmodeWidget() {
-          new Darkmode().showWidget();
-        }
-        window.addEventListener('load', addDarkmodeWidget);
-
-      </script>
-      <script>
-          setTimeout(function() {
-                const isDarkTheme = window.matchMedia("(prefers-color-scheme: dark)"); // 是深色
-                if (isDarkTheme.matches) { // 是深色
-                    darkmode.button.click();
-                    console.log("yes");
-                }
-            }, 2000);
-      </script>
-      <script src="message.js"></script>
+    <script src="message.js"></script>
 </body>
 </html>
