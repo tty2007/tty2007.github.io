@@ -1,4 +1,4 @@
-var open = false;
+var open = true;
 function login(){
     if(localStorage.getItem("login")!=undefined) return true;
     return false;
