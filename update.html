@@ -11,6 +11,8 @@
 <body>
   <div class="nav_title_bar">
       <div id="navImg"></div>
+      <div id="login"></div>
+        <script src="login/add_btn.js"></script>
       <center>
           <div class="btns">
               <button class="nav_btn now" onclick="top.location = 'index.html'">主页</button>
@@ -25,44 +27,72 @@
         <div>
             <h4>新增成绩查询功能,仅需输入名字即可显示自己的成绩</h4>
         </div>
+
       <br>
+
       <h2>1.1.0版本更新公告</h2>
         <div>
             <h4>新增成绩比较功能 可同时选择自己和另一位学生进行成绩比较</h4>
         </div>
+
       <br>
+
       <h2>1.1.1版本更新公告</h2>
         <div>
             <h4>新增在成绩比较基础上以饼图形式展示</h4>
         </div>
+
       <br>
+
       <h2>1.1.2版本更新公告</h2>
         <div>
             <h4>新增在成绩比较基础上以蜘蛛图形式展示</h4>
         </div>
+
       <br>
+
       <h2>1.1.3版本更新公告</h2>
         <div>
             <h4>新增在成绩比较基础上以柱状图形式展示</h4>
         </div>
+
       <br>
+
       <h2>1.2.0版本更新公告</h2>
         <div>
             <h4>修复了手机端上图表显示不全的问题</h4>
         </div>
+
       <br>
+
       <h2>1.2.1版本更新公告</h2>
         <div>
           <h4>修复了图表中科目名称显示异常的问题</h4>
+        </div>
+
+      <br>
+
+      <h2>1.3.1版本更新公告</h2>
+        <div>
+            <h4>加入了加载画面和些没用的彩蛋(单纯炫个技)</h4>
+        </div>
+
+      <br>
+
+      <h2>三月份 2.0.0版本更新公告</h2>
+        <div>
+            <h4>新增登录系统 个人账户密码后续会统一发送敬请期待</h4>
         </div>
   </div>
   <div id="loading">
     <div class="inner">
         <img id="doge" src="doge.gif">
         <br>
-        加载中...
+        加载中
     </div>
 </div>
+<div id="message"></div>
+<link rel="stylesheet" href="message.css">
 <script>
     setTimeout(function() {
         $("#loading").css("opacity", "0");
@@ -71,5 +101,38 @@
         }, 1000);
     }, 3000);
 </script>
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script>
+        const options = {
+        bottom: '64px', // default: '32px'
+        right: 'unset', // default: '32px'
+        left: '32px', // default: 'unset'
+        time: '.3s', // default: '0.3s'
+        mixColor: '#fff', // default: '#fff'
+        backgroundColor: '#fff',  // default: '#fff'
+        buttonColorDark: '#070707',  // default: '#100f2c'
+        buttonColorLight: '#fff', // default: '#fff'
+        saveInCookies: true, // default: true,
+        label: '✨', // default: ''
+        autoMatchOsTheme: true // default: true
+        }
 
+        const darkmode = new Darkmode(options);
+        darkmode.showWidget();
+        function addDarkmodeWidget() {
+          new Darkmode().showWidget();
+        }
+        window.addEventListener('load', addDarkmodeWidget);
+      </script>
+      <script>
+        setTimeout(function() {
+              const isDarkTheme = window.matchMedia("(prefers-color-scheme: dark)"); // 是深色
+              if (isDarkTheme.matches) { // 是深色
+                  darkmode.button.click();
+                  console.log("dark");
+              }
+          }, 2000);
+    </script>
+    <script src="message.js"></script>
 </body>
+</html>
