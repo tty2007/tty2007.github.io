@@ -95,7 +95,13 @@
     </div>
     
     <div id="jsi-cherry-container" class="container"><button onclick="top.location = 'index.html'" style="position: fixed;top: 5px;left: 5px;background: transparent;color:white;border:1px solid white;padding:20px 50px;backdrop-filter: blur(5px);user-select: none;">退出</button></div>
-
+    <div class="lan" onclick="this.remove();$('.gonggao').remove();"></div>
+    <div class="gonggao">
+        <div class="x" onclick="this.remove();$('.lan').remove();$('.gonggao').remove();">✕</div>
+        <div class="title">公告</div>
+        <p class="gonggaomain">1. 从2022年3月14日起新增公告栏元素到网页中。</p>
+        <p class="gonggaomain">2. 第二个公告。</p>
+    </div>
     <div id="loading">
         <div class="inner">
             <img draggable="false" id="doge" src="doge.gif">

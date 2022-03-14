@@ -53,19 +53,63 @@ body{
 }
 
 #button{
-    user-select: none;
-    width:200px;
-    height:60px;
-    border:1px solid #ccc;
-    font-size: 28px;
-    border-radius:5px;
-    margin-top: 15px;
+    line-height:30px;
+    margin-top: 30px;
+    width: 130px;
+    height: 30px;
+    border-radius: 5px;
     outline: none;
-    background: #fff;
-    transition: .3s;
+    border: none;
+    background: linear-gradient(45deg,#939fc9, #9dfdef, #88abfd);
+    background-size: 200%;
+    background-position: center;
+    color: #000000;
+    transition: .6s;
+}
+#button:hover{
+    background-position: 100% 0;
 }
 
-#button:hover{
-    cursor: pointer;
-    background: #f8f8f8;
+.gonggao{
+    width: 90vw;
+    max-width: 800px;
+    height: 80vh;
+    max-height: 500px;
+    background: linear-gradient(#6da2ff 15%, #ffffff 15%);
+    box-shadow: #00000050 0px 0px 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    transform: translate(-50%,-50%);
+    z-index: 9999999999991;
+    overflow: scroll;
+}
+
+.lan{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.60);
+    backdrop-filter: blur(5px);
+    z-index: 9999999999991;
+}
+
+.x{
+    font-size: 40px;
+    margin: 10px 20px;
+}
+
+.title{
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translate(-50%,0);
+    font-size: 40px;
+}
+
+.gonggaomain{
+    margin: 40px;
 }

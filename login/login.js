@@ -47,7 +47,6 @@ try{
 
             // get json string from pass.json
             $.getJSON('pass.json', function(json){
-                let passOrUserWrong = false;
                 for(let i=0;i<json.length;i++){
                     if(id.val() == json[i].username && pwd.val() == json[i].password){
                         // generate token
