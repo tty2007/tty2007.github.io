@@ -54,7 +54,7 @@
         <hr>
         **按钮**
         <br>
-        <button id="button" onclick="message('嘿 你丫瞅啥')">看起来人畜无害的小按钮</button>
+        <button id="button" onclick="message('嘿 你丫瞅啥');playAudio();">看起来人畜无害的小按钮</button>
         <br><i style="width: 80vw;">
             ^^^尝试点击按钮^^^
         </i><br><br>
@@ -99,9 +99,9 @@
     <div class="gonggao">
         <div class="x" onclick="this.remove();$('.lan').remove();$('.gonggao').remove();">✕</div>
         <div class="title">公&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp告</div>
-        <p class="gonggaomain">1. 自2022年3月14日起新增公告栏元素到网页中。</p>
+        <p class="gonggaomain" >1. 自2022年3月14日起新增公告栏元素到网页中。</p>
         <p class="gonggaomain">2.目前手机端进入网站登录后不可注销，请谨慎选择<br>电脑端无此问题请放心使用~</p>
-        <p class="gonggaomain" style="color: red;">3.进入更新日志页不要打开黑夜模式</p>
+        <p class="gonggaomain" style="color: red; ">3.进入更新日志页不要打开黑夜模式</p>
     </div>
     <div id="loading">
         <div class="inner">
@@ -121,6 +121,13 @@
             }, 1000);
         }, 3000);
     </script>
+    <script>
+        function playAudio() {
+          const audio = document.createElement("audio");
+          audio.src = "hhh.mp3";
+          audio.play();
+        }
+      </script>
     <script src="flower.js"></script>
     <script src="fps.js"></script>
     <script src="message.js"></script>
