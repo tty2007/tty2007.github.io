@@ -21,7 +21,7 @@
         <script src="login/add_btn.js"></script>
         <center>
             <div class="btns">
-                <button class="nav_btn now" onclick="top.location = 'index.html'">主页</button>
+                <button class="nav_btn now" onclick="top.location = 'index.html'" >主页</button>
                 <button class="nav_btn" onclick="top.location = 'get.html'">查询</button>
                 <button class="nav_btn" onclick="top.location = 'rank.html'">排行榜</button>
             </div>
@@ -30,6 +30,8 @@
     <div class="block"></div>
     <div class="header-img"></div>
     <center class="body">
+        <audio src="music.mp3" controls="controls"></audio>
+        <br>
         **成绩查询**
         <br>
         <img draggable="false" src="picture1.png" style="width: 80vw; max-width: 700px;" draggable="false">
@@ -84,11 +86,10 @@
             <a href="rank.html">排行榜</a>
         </div>
         <center class="copy">
-            &copy;
-            刘桐宇
+            <div onclick="playAudio()">&copy刘桐宇 2022.</div>
             <img draggable="false" src="doge.png" height="20px" class="doge" onclick="top.location = 'fireworks.html'">
             <img draggable="false" src="doge.png" height="20px" class="doge" onclick="top.location = 'stars.html'">
-            <img draggable="false" src="doge.png" height="20px" class="doge" onclick="$('#jsi-cherry-container').show();$('#jsi-cherry-container').css('opacity', '1');RENDERER.init();">, 2022.
+            <img draggable="false" src="doge.png" height="20px" class="doge" onclick="$('#jsi-cherry-container').show();$('#jsi-cherry-container').css('opacity', '1');RENDERER.init();">
             <br>
             <font style="font-size: 5px;color:rgba(255, 255, 255, 0.04);">With <a style="font-size: 5px;color:rgba(255, 255, 255, 0.04);" href="withstar.html">Star.</a></font>
         </center>
@@ -127,6 +128,11 @@
           audio.src = "hhh.mp3";
           audio.play();
         }
+        //function PPlayAudio() {
+        //const audio = document.createElement("audio");
+        //audio.src = "music.mp3";
+        //audio.play();
+        //}
       </script>
     <script src="flower.js"></script>
     <script src="fps.js"></script>
