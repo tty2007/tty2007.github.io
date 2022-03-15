@@ -22,7 +22,7 @@ function message(m='',type='tab'){
         tag.style.paddingLeft = '0px';
         tag.style.paddingRight = '0px';
         setTimeout(function(){
-            tag.style.width = "200px";
+            tag.style.width = "300px";
             tag.style.padding = '5px';
             tag.style.paddingLeft = '40px';
             tag.style.paddingRight = '40px';
