@@ -55,7 +55,7 @@ body{
 #button{
     line-height:30px;
     margin-top: 30px;
-    width: 150px;
+    width: auto;
     height: 30px;
     border-radius: 5px;
     outline: none;
