@@ -1,0 +1,434 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>双人对战五子棋</title>
+		<style type="text/css">
+			#center{
+				text-align:center;
+			}
+			table {
+				border: 1px solid black;
+				border-collapse: collapse;
+				background-color: burlywood;
+				margin:0 auto
+			}
+			
+			td {
+				border: 1px solid black;
+				width: 40px;
+				height: 40px;
+			}
+
+		</style>
+		<script type="text/javascript">
+			// 需求：综合运用HTML、CSS、JavaScript，在页面中实现《两人对战五子棋》游戏
+			//		五子棋的规则：
+			//		1、页面上有棋盘（15 * 15），分为黑棋和白棋，黑棋先行
+			//		2、横向、纵向、斜向，只要有5个连成直线的同色棋子，就算赢
+
+			// 思路：获取当前落子棋子的坐标和颜色，寻找其周围横向、纵向、斜向是否能形成5个连续的同色子
+			
+			// 设置棋子初始颜色
+			var currentColor = 'black';
+			
+			// 页面加载
+			window.onload = function () {
+				// 获取页面元素提示信息并赋值
+				document.getElementById('spanColor').innerText = currentColor;
+				
+				// 获取页面元素棋盘表格
+				var chessboard = document.getElementById('chessboard');
+				
+				// 绑定事件
+				chessboard.onclick = function () {
+//					console.log(this);				// this指向的是table#chessboard
+//					console.log(event.target);		// event.target指向的是发生点击事件的单元格td
+
+					// 1、获取发生点击事件的单元格对象
+					var obj = event.target;
+					
+					// 2、判断发生点击事件的单元格对象是否已经落子
+					if (obj.style.backgroundColor == 'black' || obj.style.backgroundColor == 'white') {
+						alert('该位置已经有棋子，不能再落子！');
+					} else{
+						// 3、修改其背景颜色
+						obj.style.backgroundColor = currentColor;
+						obj.style.borderRadius = '50%';
+
+						// 4、创建当前棋子对象，提供给后续判断输赢使用
+						// 考虑坐标(x, y)：(0, 0),...(0, 14),(1, 1),...(1, 14),...(14, 0),...(14, 14)
+						var currentChess = {
+							//cellIndex 属性可返回一行的单元格集合中单元格的位置。
+							//rowIndex 属性返回某一行在表格的行集合中的位置（row index）
+							x: obj.cellIndex,
+							y: obj.parentNode.rowIndex,
+							color: currentColor
+						};
+						
+						// 5、设置赢的条件
+						var flag = (currentColor == 'black' ? 'bbbbb' : 'wwwww');
+						
+						// 6、设置接下来落子的颜色
+						var tempColor = currentColor;
+						if (currentColor == 'black') {
+							currentColor = 'white';
+						} else{
+							currentColor = 'black';
+						}
+						// 获取页面元素提示信息并赋值
+						document.getElementById('spanColor').innerText = currentColor;
+						
+						// 7、判断输赢（其实就是查看坐标系中的棋子颜色情况）
+						// 获取棋盘中所有的单元格对象，得到单元格数组
+						var tdArr = document.getElementById('chessboard').getElementsByTagName('td');
+						
+						// 存储棋子位置的容器，四个字符串对应横向、竖向、左上右下斜向、右上左下斜向
+						var result = ['', '', '', ''];
+						
+						// 遍历棋盘
+						for (var i = 0; i < tdArr.length; i++) {
+							// 初始化每一个位置对象
+							var tempChess = {
+								x: tdArr[i].cellIndex,
+								y: tdArr[i].parentNode.rowIndex,
+								color: '0' // 位置上无棋子
+							};
+							
+							// 遍历时，如果该位置上有棋子，就修改color属性
+							if (tdArr[i].style.backgroundColor == 'black') {
+								tempChess.color = 'b';
+							} else if (tdArr[i].style.backgroundColor == 'white') {
+								tempChess.color = 'w';
+							}
+							
+							// 遍历每一个位置 和 当前棋子进行比较
+							//位于统一横线y为0，位于同一个竖线x为0
+							// 位于同一横线上，例如：(0, 0), (1, 0), (5, 0)
+							if (currentChess.y == tempChess.y) {
+								result[0] += tempChess.color;
+							}
+							// 位于同一竖线上，例如：(0, 0), (0, 1), (0, 5)
+							if (currentChess.x == tempChess.x) {
+								result[1] += tempChess.color;
+							}
+							// 位于同一斜线上（左上至右下）
+							// 例如：(0, 0), (1, 1), (2, 2)；
+							//		(0, 1), (1, 2), (2, 3);(0, 2), (1, 3), (2, 4);
+							//		(1, 0), (2, 1), (3, 2);(2, 0), (3, 1), (4, 2)；
+							if ((currentChess.x - tempChess.x) == (currentChess.y - tempChess.y)) {
+								result[2] += tempChess.color;
+							}
+							// 位于同一斜线上（右上至左下）
+							// 例如：(14, 0), (13, 1), (12, 2);
+							//		(13, 0), (12, 1), (11, 2);(12, 0), (11, 1), (12, 2);
+							//		(14, 1), (13, 2), (12, 3);(14, 2), (13, 3), (12, 4);
+							if ((currentChess.x + currentChess.y) == (tempChess.x + tempChess.y)) {
+								result[3] += tempChess.color;
+							}
+						}
+						
+						// 遍历
+						for (var i = 0; i < result.length; i++) {
+							// indexOf() 方法可返回某个指定的字符串值在字符串中首次出现的位置
+							if(result[i].indexOf(flag) >= 0) {
+								if (tempColor == 'black') {
+									alert("黑棋获胜！！！");	
+								} else if (tempColor == 'white') {
+									alert('白棋获胜！！！');
+								}
+								
+								break;
+							}
+						}
+					}
+				};
+			};
+		</script>
+	</head>
+	<body>
+		<!-- <center> -->
+		<div id="center">
+			<h3>来玩五子棋呀~</h3>
+			<div id="divMsg">
+				落子者为：<span id="spanColor"></span>
+			</div>
+			<table id="chessboard">
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+                    
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+                    
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+                    
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+                    
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+                    
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+                    
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+                    
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+                    
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+                    
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+                    
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+                    
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+                    
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+                    
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+                   
+				</tr>
+			</table>
+		</div>
+	<!-- </center> -->
+    <script src="message.js"></script>
+	</body>
+</html>
+
