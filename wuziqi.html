@@ -1,434 +1,277 @@
-
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title>双人对战五子棋</title>
-		<style type="text/css">
-			#center{
-				text-align:center;
-			}
-			table {
-				border: 1px solid black;
-				border-collapse: collapse;
-				background-color: burlywood;
-				margin:0 auto
-			}
-			
-			td {
-				border: 1px solid black;
-				width: 40px;
-				height: 40px;
-			}
+<html lang="zh">
 
-		</style>
-		<script type="text/javascript">
-			// 需求：综合运用HTML、CSS、JavaScript，在页面中实现《两人对战五子棋》游戏
-			//		五子棋的规则：
-			//		1、页面上有棋盘（15 * 15），分为黑棋和白棋，黑棋先行
-			//		2、横向、纵向、斜向，只要有5个连成直线的同色棋子，就算赢
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>五子棋</title>
+    <style>
+         :root {
+            --qizi-width: 40px;
+        }
+        
+        .col_btn {
+            height: 45px;
+            width: 45px;
+            margin: 0;
+            border-radius: none;
+            border: 1px solid black;
+            background: burlywood;
+        }
+        
+        .col_btn:hover {
+            background: url(chess_tips.png);
+            background-size: cover;
+        }
+        
+        .raw {
+            display: flex;
+        }
+        
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid black;
+        }
+        
+        .circle_black {
+            position: relative;
+            top: 60%;
+            left: 60%;
+            height: var(--qizi-width);
+            width: var(--qizi-width);
+            margin: 0;
+            border-radius: 50%;
+            background: black;
+            box-shadow: white 0 0 10px;
+        }
+        
+        .circle_white {
+            position: relative;
+            top: 60%;
+            left: 60%;
+            height: var(--qizi-width);
+            width: var(--qizi-width);
+            margin: 0;
+            border-radius: 50%;
+            background: white;
+            box-shadow: black 0 0 10px;
+        }
+        
+        .cover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.5);
+        }
+        
+        .infor {
+            z-index: 99;
+            position: absolute;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
 
-			// 思路：获取当前落子棋子的坐标和颜色，寻找其周围横向、纵向、斜向是否能形成5个连续的同色子
-			
-			// 设置棋子初始颜色
-			var currentColor = 'black';
-			
-			// 页面加载
-			window.onload = function () {
-				// 获取页面元素提示信息并赋值
-				document.getElementById('spanColor').innerText = currentColor;
-				
-				// 获取页面元素棋盘表格
-				var chessboard = document.getElementById('chessboard');
-				
-				// 绑定事件
-				chessboard.onclick = function () {
-//					console.log(this);				// this指向的是table#chessboard
-//					console.log(event.target);		// event.target指向的是发生点击事件的单元格td
+<body>
+    <div class="center" id="qipan">
+    </div>
+    <div class="infor">
+        <h1 id="xiaqifang">当前下棋方：黑子</h1>
+        <h1 id="dinkezi">第0颗子</h1>
+    </div>
+    <script src="https://xchuangc.github.io/messagejs/message.js"></script>
+    <script>
+        startXmessage();
+    </script>
+    <script>
+        var ended = false;
+        var zi = 0;
+        var color = 'black';
+        var colorNum = 1;
+        var qipan = $('#qipan');
+        // make 15*button.col_btn 15 * div.raw
+        for (var i = 0; i < 15; i++) {
+            var raw = $('<div class="raw"></div>');
+            for (var j = 0; j < 15; j++) {
+                var col_btn = $('<button class="col_btn"></button>');
+                col_btn.attr('id', i + '-' + j);
+                col_btn.attr('onclick', 'chess(this)');
+                raw.append(col_btn);
+            }
+            qipan.append(raw);
+        }
+        var chess_arr = [
+            [
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            ],
+            [
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            ],
+            [
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            ],
+            [
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            ],
+            [
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            ],
+            [
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            ],
+            [
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            ],
+            [
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            ],
+            [
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            ],
+            [
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            ],
+            [
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            ],
+            [
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            ],
+            [
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            ],
+            [
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            ],
+            [
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            ]
+        ];
 
-					// 1、获取发生点击事件的单元格对象
-					var obj = event.target;
-					
-					// 2、判断发生点击事件的单元格对象是否已经落子
-					if (obj.style.backgroundColor == 'black' || obj.style.backgroundColor == 'white') {
-						alert('该位置已经有棋子，不能再落子！');
-					} else{
-						// 3、修改其背景颜色
-						obj.style.backgroundColor = currentColor;
-						obj.style.borderRadius = '50%';
+        function win(arr) {
+            var count_black = 0;
+            var count_white = 0;
+            // 横向
+            for (var i = 0; i < 15; i++) {
+                for (var j = 0; j < 15; j++) {
+                    if (arr[i][j] == 1) {
+                        count_black++;
+                    } else if (arr[i][j] == 2) {
+                        count_white++;
+                    } else {
+                        count_black = 0;
+                        count_white = 0;
+                    }
+                    if (count_black == 5) {
+                        end('黑子赢了');
+                        return true;
+                    } else if (count_white == 5) {
+                        end('白子赢了');
+                        return true;
+                    }
+                }
+                count_black = 0;
+                count_white = 0;
+            }
+            // 纵向
+            for (var i = 0; i < 15; i++) {
+                for (var j = 0; j < 15; j++) {
+                    if (arr[j][i] == 1) {
+                        count_black++;
+                    } else if (arr[j][i] == 2) {
+                        count_white++;
+                    } else {
+                        count_black = 0;
+                        count_white = 0;
+                    }
+                    if (count_black == 5) {
+                        end('黑子赢了');
+                        return true;
+                    } else if (count_white == 5) {
+                        end('白子赢了');
+                        return true;
+                    }
+                }
+                count_black = 0;
+                count_white = 0;
+            }
+            // 斜向
+            for (var i = 0; i < 15; i++) {
+                for (var j = 0; j < 15; j++) {
+                    if ((arr[i][j] == 1) && (arr[i][j] == arr[i + 1][j + 1])) {
+                        count_black++;
+                    } else if ((arr[i][j] == 2) && (arr[i][j] == arr[i + 1][j + 1])) {
+                        count_white++;
+                    }
+                    if (count_black == 4) {
+                        end('黑子赢了');
+                        return true;
+                    } else if (count_white == 4) {
+                        end('白子赢了');
+                        return true;
+                    }
+                }
+            }
+            for (var i = 0; i < 15; i++) {
+                for (var j = 0; j < 15; j++) {
+                    if ((arr[i][j] == 1) && (arr[i][j] == arr[i - 1][j + 1])) {
+                        count_black++;
+                        console.log(count_black);
+                    } else if ((arr[i][j] == 2) && (arr[i][j] == arr[i - 1][j + 1])) {
+                        count_white++;
+                    }
+                    if (count_black == 4) {
+                        end('黑子赢了');
+                        return true;
+                    } else if (count_white == 4) {
+                        end('白子赢了');
+                        return true;
+                    }
+                }
+            }
 
-						// 4、创建当前棋子对象，提供给后续判断输赢使用
-						// 考虑坐标(x, y)：(0, 0),...(0, 14),(1, 1),...(1, 14),...(14, 0),...(14, 14)
-						var currentChess = {
-							//cellIndex 属性可返回一行的单元格集合中单元格的位置。
-							//rowIndex 属性返回某一行在表格的行集合中的位置（row index）
-							x: obj.cellIndex,
-							y: obj.parentNode.rowIndex,
-							color: currentColor
-						};
-						
-						// 5、设置赢的条件
-						var flag = (currentColor == 'black' ? 'bbbbb' : 'wwwww');
-						
-						// 6、设置接下来落子的颜色
-						var tempColor = currentColor;
-						if (currentColor == 'black') {
-							currentColor = 'white';
-						} else{
-							currentColor = 'black';
-						}
-						// 获取页面元素提示信息并赋值
-						document.getElementById('spanColor').innerText = currentColor;
-						
-						// 7、判断输赢（其实就是查看坐标系中的棋子颜色情况）
-						// 获取棋盘中所有的单元格对象，得到单元格数组
-						var tdArr = document.getElementById('chessboard').getElementsByTagName('td');
-						
-						// 存储棋子位置的容器，四个字符串对应横向、竖向、左上右下斜向、右上左下斜向
-						var result = ['', '', '', ''];
-						
-						// 遍历棋盘
-						for (var i = 0; i < tdArr.length; i++) {
-							// 初始化每一个位置对象
-							var tempChess = {
-								x: tdArr[i].cellIndex,
-								y: tdArr[i].parentNode.rowIndex,
-								color: '0' // 位置上无棋子
-							};
-							
-							// 遍历时，如果该位置上有棋子，就修改color属性
-							if (tdArr[i].style.backgroundColor == 'black') {
-								tempChess.color = 'b';
-							} else if (tdArr[i].style.backgroundColor == 'white') {
-								tempChess.color = 'w';
-							}
-							
-							// 遍历每一个位置 和 当前棋子进行比较
-							//位于统一横线y为0，位于同一个竖线x为0
-							// 位于同一横线上，例如：(0, 0), (1, 0), (5, 0)
-							if (currentChess.y == tempChess.y) {
-								result[0] += tempChess.color;
-							}
-							// 位于同一竖线上，例如：(0, 0), (0, 1), (0, 5)
-							if (currentChess.x == tempChess.x) {
-								result[1] += tempChess.color;
-							}
-							// 位于同一斜线上（左上至右下）
-							// 例如：(0, 0), (1, 1), (2, 2)；
-							//		(0, 1), (1, 2), (2, 3);(0, 2), (1, 3), (2, 4);
-							//		(1, 0), (2, 1), (3, 2);(2, 0), (3, 1), (4, 2)；
-							if ((currentChess.x - tempChess.x) == (currentChess.y - tempChess.y)) {
-								result[2] += tempChess.color;
-							}
-							// 位于同一斜线上（右上至左下）
-							// 例如：(14, 0), (13, 1), (12, 2);
-							//		(13, 0), (12, 1), (11, 2);(12, 0), (11, 1), (12, 2);
-							//		(14, 1), (13, 2), (12, 3);(14, 2), (13, 3), (12, 4);
-							if ((currentChess.x + currentChess.y) == (tempChess.x + tempChess.y)) {
-								result[3] += tempChess.color;
-							}
-						}
-						
-						// 遍历
-						for (var i = 0; i < result.length; i++) {
-							// indexOf() 方法可返回某个指定的字符串值在字符串中首次出现的位置
-							if(result[i].indexOf(flag) >= 0) {
-								if (tempColor == 'black') {
-									alert("黑棋获胜！！！");	
-								} else if (tempColor == 'white') {
-									alert('白棋获胜！！！');
-								}
-								
-								break;
-							}
-						}
-					}
-				};
-			};
-		</script>
-	</head>
-	<body>
-		<!-- <center> -->
-		<div id="center">
-			<h3>来玩五子棋呀~</h3>
-			<div id="divMsg">
-				落子者为：<span id="spanColor"></span>
-			</div>
-			<table id="chessboard">
-				<tr>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-                    
-				</tr>
-				<tr>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-                    
-				</tr>
-				<tr>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-                    
-				</tr>
-				<tr>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-                    
-				</tr>
-				<tr>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-                    
-				</tr>
-				<tr>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-                    
-				</tr>
-				<tr>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-                    
-				</tr>
-				<tr>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-                    
-				</tr>
-				<tr>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-                    
-				</tr>
-				<tr>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					
-				</tr>
-				<tr>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-                    
-				</tr>
-				<tr>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-                    
-				</tr>
-				<tr>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-                    
-				</tr>
-				<tr>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-                    
-				</tr>
-				<tr>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-                   
-				</tr>
-			</table>
-		</div>
-	<!-- </center> -->
-    <script src="message.js"></script>
-	</body>
+
+        }
+
+        var chess = function(element) {
+            if (!ended) {
+                if (document.getElementById(element.id).innerHTML == '') {
+                    $(`#${element.id}`).append(`<div class="circle_${color}"></div>`);
+                    chess_arr[element.id.split('-')[0]][element.id.split('-')[1]] = colorNum;
+                    console.log(chess_arr);
+                    if (color === 'black') {
+                        color = 'white';
+                        colorNum = 2;
+                    } else {
+                        color = 'black';
+                        colorNum = 1;
+                    }
+                    zi++;
+                    $('#xiaqifang').html(`当前下棋方：${color === 'black' ? '黑子' : '白子'}`);
+                    $('#dinkezi').html(`第${zi}颗子`);
+                    if (win(chess_arr)) {
+                        return;
+                    }
+                } else {
+                    message('该位置已有棋子！');
+                }
+            }
+        }
+
+        function end(m) {
+            message(m);
+            ended = true;
+            $('#qipan').append(`<div class="cover">当前胜利方：${m.split('子赢了')[0]}<br>下子数：${zi}颗子</div>`);
+        }
+
+        // (C) BaiG 2022. All rights reserved.
+    </script>
+</body>
+
 </html>
-
