@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-    
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,6 +24,7 @@
                 <button class="nav_btn" onclick="top.location = 'get.html'">查询</button>
                 <button class="nav_btn" onclick="top.location = 'rank.html'">排行榜</button>
                 <button class="nav_btn" onclick="top.location = 'wuziqi.html'">点我玩五子棋</button>
+                <button class="nav_btn" onclick="top.location = 'chushibiao.html'" >出师表</button>
             </div>
         </center>
     </div>
@@ -57,8 +57,11 @@
         <hr>
         **按钮**
         <br>
-        <button id="button" onclick="message('嘿 你丫瞅啥');PPlayAudio();">看起来人畜无害的小按钮</button>
-        <br><i style="width: 80vw;">
+        <button class="button" onclick="message('嘿 你丫瞅啥');playAudio1();">八</button>
+        <button class="button" onclick="message('嘿 你丫瞅啥');playAudio2();">音</button>
+        <button class="button" onclick="message('嘿 你丫瞅啥');playAudio3();">盒</button>
+        <br>
+        <i style="width: 80vw;">
             ^^^尝试点击按钮^^^
         </i><br><br>
         <text style="font-size: 20px;">简约、美观</text>
@@ -103,7 +106,7 @@
         <div class="title">公&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp告</div>
         <p class="gonggaomain" style="color: fuchsia;">嘿 大家好 看到最上面一栏的五子棋了嘛！！<br>它目前只可以双人对决~<br>可以等复课后去班里试一试呢或者找你的小伙伴一起叭~</p>
         <p class="gonggaomain">1.目前手机端进入网站登录后不可注销，请谨慎选择<br>电脑端无此问题请放心使用~</p>
-        <p class="gonggaomain" style="color: red; "></p>
+        
     </div>
     <div id="loading">
         <div class="inner">
@@ -124,14 +127,19 @@
         }, 3000);
     </script>
     <script>
-        function playAudio() {
+        function playAudio1() {
           const audio = document.createElement("audio");
-          audio.src = "hhh.mp3";
+          audio.src = "joker.mp3";
           audio.play();
         }
-        function PPlayAudio() {
+        function playAudio2() {
         const audio = document.createElement("audio");
-        audio.src = "joker.mp3";
+        audio.src = "humburger.mp3";
+        audio.play();
+        }
+        function playAudio3() {
+        const audio = document.createElement("audio");
+        audio.src = "full.mp3";
         audio.play();
         }
       </script>
