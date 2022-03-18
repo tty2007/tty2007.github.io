@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zh">
 
@@ -74,6 +75,22 @@
             z-index: 99;
             position: absolute;
         }
+
+		#reload{
+     		line-height:30px;
+        	margin-top: 30px;
+    		width: auto;
+    		height: 30px;
+    		border-radius: 5px;
+    		outline: none;
+    		border: none;
+    		background: linear-gradient(45deg,#939fc9, #9dfdef, #88abfd);
+    		background-size: 200%;
+    		background-position: center;
+    		color: #000000;
+    		transition: .6s;
+             }
+		
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
@@ -84,7 +101,9 @@
     <div class="infor">
         <h1 id="xiaqifang">当前下棋方：黑子</h1>
         <h1 id="dinkezi">第0颗子</h1>
+		<button id="reload" onclick="location.reload()">重新开始游戏</button>
     </div>
+
     <script src="https://xchuangc.github.io/messagejs/message.js"></script>
     <script>
         startXmessage();
