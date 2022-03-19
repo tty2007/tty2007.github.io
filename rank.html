@@ -8,6 +8,16 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="nav.css">
+    <style>
+        #btn{
+            background: linear-gradient(45deg,#ffaf6ef8, #f0b5b559, #88abfd);
+            background-size: 150%;
+        }
+
+        #btn:hover{
+            background-position: 100% 0;
+        }
+    </style>
 </head>
 <body>
     <div class="nav_title_bar">
@@ -24,7 +34,7 @@
     </div>
     <div class="block"></div>
     <center>
-        <button onclick="print_rank();" id="btn" style="margin-top: 100px;margin-bottom: 100px;">加载排行榜</button>
+        <button onclick="print_rank();" id="btn" style="margin-top: 100px;margin-bottom: 100px">加载排行榜</button>
         <div id="text"></div>
     </center>
     <div id="rank" style="margin-top: 100px;margin-bottom: 100px;z-index:1;"></div>
@@ -57,38 +67,6 @@
                 $("#loading").hide();
             }, 1000);
         }, 3000);
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
-    <script>
-        const options = {
-        bottom: '64px', // default: '32px'
-        right: 'unset', // default: '32px'
-        left: '32px', // default: 'unset'
-        time: '.3s', // default: '0.3s'
-        mixColor: '#fff', // default: '#fff'
-        backgroundColor: '#fff',  // default: '#fff'
-        buttonColorDark: '#070707',  // default: '#100f2c'
-        buttonColorLight: '#fff', // default: '#fff'
-        saveInCookies: true, // default: true,
-        label: '✨', // default: ''
-        autoMatchOsTheme: true // default: true
-        }
-
-        const darkmode = new Darkmode(options);
-        darkmode.showWidget();
-        function addDarkmodeWidget() {
-          new Darkmode().showWidget();
-        }
-        window.addEventListener('load', addDarkmodeWidget);
-      </script>
-      <script>
-        setTimeout(function() {
-              const isDarkTheme = window.matchMedia("(prefers-color-scheme: dark)"); // 是深色
-              if (isDarkTheme.matches) { // 是深色
-                  darkmode.button.click();
-                  console.log("dark");
-              }
-          }, 2000);
     </script>
     <script src="message.js"></script>
 </body>
