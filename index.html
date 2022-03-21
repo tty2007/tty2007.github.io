@@ -21,10 +21,20 @@
         <center>
             <div class="btns">
                 <button class="nav_btn now" onclick="top.location = 'index.html'" >主页</button>
-                <button class="nav_btn" onclick="top.location = 'get.html'">查询</button>
-                <button class="nav_btn" onclick="top.location = 'rank.html'">排行榜</button>
-                <button class="nav_btn" onclick="top.location = 'wuziqi.html'">点我玩五子棋</button>
-                <button class="nav_btn" onclick="top.location = 'chushibiao.html'" >点我背诵出师表</button>
+                <div class="dropdown">
+                    <button class="dropbtn">&nbsp分数相关&nbsp</button>
+                    <div class="dropdown-content">
+                    <a href="get.html">成绩查询</a>
+                    <a href="compare.html">排名——比较</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">娱乐</button>
+                    <div class="dropdown-content-two">
+                    <a href="wuziqi.html">五子棋</a>
+                    <a href="chushibiao.html">背出师表啊宝贝儿</a>
+                    </div>
+                </div>
             </div>
         </center>
     </div>
@@ -61,6 +71,9 @@
         <button class="button" onclick="message('嘿 你丫瞅啥');playAudio2();">音</button>
         <button class="button" onclick="message('嘿 你丫瞅啥');playAudioo();">盒</button>
         <br>
+        <button class="button" onclick="message('嘿 你丫瞅啥');pplayAudio();">鸡</button>
+        <button class="button" onclick="message('嘿 你丫瞅啥');PplayAudio();">汤</button>
+        <br>
         <i style="width: 80vw;">
             ^^^尝试点击按钮^^^
         </i><br><br>
@@ -90,7 +103,9 @@
             <a href="rank.html">排行榜</a>
         </div>
         <center class="copy">
-            <div onclick="playAudioo();message('你...你你怎...怎么发现我的？！')">&copy刘桐宇 2022.</div>
+            <div onclick="playAudioo();message('点你爹名字干什么？想你爹了？？')">&copy刘桐宇 </div>
+            
+            <div style="color:deeppink">2022</div>
             <img draggable="false" src="doge.png" height="20px" class="doge" onclick="top.location = 'fireworks.html'">
             <img draggable="false" src="doge.png" height="20px" class="doge" onclick="top.location = 'stars.html'">
             <img draggable="false" src="doge.png" height="20px" class="doge" onclick="$('#jsi-cherry-container').show();$('#jsi-cherry-container').css('opacity', '1');RENDERER.init();">
@@ -142,6 +157,26 @@
         audio.src = "duck.mp3";
         audio.play();
         }
+        function pplayAudio() {
+        const audio = document.createElement("audio");
+        audio.src = "meishi.mp3";
+        audio.play();
+        }
+        function PplayAudio() {
+        const audio = document.createElement("audio");
+        audio.src = "chicken.mp3";
+        audio.play();
+        }
+
+
+
+
+
+
+
+
+
+
       </script>
     <script src="flower.js"></script>
     <script src="fps.js"></script>

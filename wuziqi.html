@@ -76,7 +76,7 @@
             position: absolute;
         }
 
-		#reload{
+		.reload{
      		line-height:30px;
         	margin-top: 30px;
     		width: auto;
@@ -90,6 +90,24 @@
     		color: #000000;
     		transition: .6s;
              }
+        
+        .back{
+            line-height:30px;
+            margin-top: 30px;
+            width: auto;
+            height: 30px;
+            border-radius: 5px;
+            outline: none;
+            border: none;
+            background: linear-gradient(45deg,  #ffd000,#fbff00,#d400ff);
+            background-size: 300%;
+            background-position: center;
+            color: #000000;
+            transition: .6s;
+            font-family: KaiTi_GB2312;
+            font-weight: bolder;
+            font-size: larger;
+        }
 		
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -101,9 +119,11 @@
     <div class="infor">
         <h1 id="xiaqifang">当前下棋方：黑子</h1>
         <h1 id="dinkezi">第0颗子</h1>
-		<button id="reload" onclick="location.reload()">重新开始游戏</button>
+		<button class="reload" onclick="location.reload()">重新开始游戏</button>
+        <br>
+        <button class="back" onclick="history.back()">爷不玩了！</button>
     </div>
-
+    
     <script src="https://xchuangc.github.io/messagejs/message.js"></script>
     <script>
         startXmessage();
