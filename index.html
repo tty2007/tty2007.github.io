@@ -10,6 +10,25 @@
     <link rel="stylesheet" href="font.css">
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .bttn{
+            line-height:30px;
+            margin-top: 30px;
+            width: auto;
+            height: 30px;
+            border-radius: 5px;
+            outline: none;
+            border: none;
+            background: linear-gradient(45deg,  #d183ff,#25c1ff,#d400ff);
+            background-size: 300%;
+            background-position: center;
+            color: #000000;
+            transition: .6s;
+            font-family: KaiTi_GB2312;
+            font-weight: bolder;
+            font-size: larger;
+        }
+    </style>
 </head>
 <body>
     
@@ -67,9 +86,9 @@
         <hr>
         **按钮**
         <br>
-        <button class="button" onclick="message('嘿 你丫瞅啥');playAudio1();">八</button>
-        <button class="button" onclick="message('嘿 你丫瞅啥');playAudio2();">音</button>
-        <button class="button" onclick="message('嘿 你丫瞅啥');playAudioo();">盒</button>
+        <button class="button" onclick="message('嘿 你丫瞅啥');playAudio1();" >八</button>
+        <button class="button" onclick="message('嘿 你丫瞅啥');playAudio2();" >音</button>
+        <button class="button" onclick="message('嘿 你丫瞅啥');playAudioo();" >盒</button>
         &nbsp;
         <button class="button" onclick="message('嘿 你丫瞅啥');pplayAudio();">鸡</button>
         <button class="button" onclick="message('嘿 你丫瞅啥');PplayAudio();">汤</button>
@@ -115,14 +134,17 @@
     </div>
     
     <div id="jsi-cherry-container" class="container"><button onclick="top.location = 'index.html'" style="position: fixed;top: 5px;left: 5px;background: transparent;color:white;border:1px solid white;padding:20px 50px;backdrop-filter: blur(5px);user-select: none;">退出</button></div>
-    <div class="lan" onclick="this.remove();$('.gonggao').remove();"></div>
+    
+    
+        
     <div class="gonggao">
         <div class="x" onclick="this.remove();$('.lan').remove();$('.gonggao').remove();">✕</div>
         <div class="title">公&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp告</div>
-        <p class="gonggaomain" style="color: fuchsia;">嘿 大家好 看到最上面一栏的五子棋了嘛！！<br>它目前只可以双人对决~<br>可以等复课后去班里试一试呢或者找你的小伙伴一起叭~</p>
+        <center><p style="color:red;padding-top: 50px;font-size: 60px;">现在网站最上方导航栏出现问题正在进行不停站修复</p></strong></center>
+        <!--<p class="gonggaomain" style="color: fuchsia;">嘿 大家好 看到最上面一栏的五子棋了嘛！！<br>它目前只可以双人对决~<br>可以等复课后去班里试一试呢或者找你的小伙伴一起叭~</p>
         <p class="gonggaomain">1.目前手机端进入网站登录后不可注销，请谨慎选择<br>电脑端无此问题请放心使用~</p>
         <p class="gonggaomain" style="color: rgb(0, 140, 255)">2.新增背出师表功能！！</p>
-        <p class="gonggaomain" style="color: red">3.好消息！好消息！网站新增新菜品：鸡汤！！！</p>
+        <p class="gonggaomain" style="color: red">3.好消息！好消息！网站新增新菜品：鸡汤！！！</p>-->
     </div>
     <div id="loading">
         <div class="inner">
