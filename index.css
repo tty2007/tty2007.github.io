@@ -118,7 +118,7 @@ body{
 }
 
 body{
-    filter: grayscale(0);
+    filter: grayscale(100%);
 }
 
 
