@@ -1,3 +1,7 @@
+body>*{
+    filter: grayscale(1);
+}
+
 #fireworks{
     position: fixed;
     top: 0;
@@ -42,6 +46,7 @@ body{
     width: 100vw;
     margin: 0;
     overflow-x: hidden;
+    /* filter: grayscale(0); */
 }
 
 .body{
@@ -78,19 +83,29 @@ body{
     background: linear-gradient(#6da2ff 15%, #ffffff 15%);
     box-shadow: #00000050 0px 0px 10px;
     position: fixed;
-    top: 50%;
+    top: 50vh;
     left: 50%;
     border-radius: 10px;
     transform: translate(-50%,-50%);
     z-index: 9999999999991;
     overflow: scroll;
-    filter: grayscale(100%);
 }
 
 .gonggaomain{
     text-align: center;
-    margin-top:50px
+}
 
+.titlebarofgonggao{
+    position: sticky;
+    top: 0px;
+    left: 0px;
+}
+
+.gonggaomaininsite{
+    position: relative;
+    left: 0px;
+    height: 400px;
+    overflow-y: scroll;
 }
 
 .lan{
@@ -105,6 +120,9 @@ body{
 }
 
 .x{
+    position: relative;
+    top: 0;
+    left: 0;
     font-size: 40px;
     margin: 10px 20px;
 }
@@ -116,9 +134,4 @@ body{
     transform: translate(-50%,0);
     font-size: 40px;
 }
-
-body{
-    filter: grayscale(100%);
-}
-
 
