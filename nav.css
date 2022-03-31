@@ -198,19 +198,28 @@ hr{
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: rgb(255, 238, 0);
+    background-color: rgb(223, 248, 0);
     border-radius: 5px;
-    min-width: 150px;
+    min-width: 129px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
 .dropdown-content-two{
     display: none;
     position: absolute;
-    background-color: rgb(255, 0, 255);
+    background-color: rgb(255, 138, 216);
     border-radius: 5px;
     min-width:161.2px;
 }
+
+.dropdown-content-three{
+    display: none;
+    position: absolute;
+    background-color: rgb(253, 169, 72);
+    border-radius: 5px;
+    min-width:190px;
+}
+
 .dropdown-content a {
     color: black;
     padding: 12px 16px;
@@ -218,6 +227,13 @@ hr{
     display: block;
 }
 .dropdown-content-two a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content-three a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
@@ -234,10 +250,19 @@ hr{
     border-radius: 15px;
 }
 
+.dropdown-content-three a:hover {
+    background-color: #fff;
+    border-radius: 15px;
+}
+
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
 .dropdown:hover .dropdown-content-two {
+    display: block;
+}
+
+.dropdown:hover .dropdown-content-three {
     display: block;
 }
