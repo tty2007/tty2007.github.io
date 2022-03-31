@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数学</title>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="test.css">
+</head>
+
+<body>
+    <div class="exam"></div>
+    <script>
+        // With ExamJS Anti-Cheat.
+        FillQuestionElement = `<div id="t[id]"><p>[question]</p><input type="[type]" placeholder="[prompt]" id="question[id]"/>[required]<hr></div>`;
+        MCQuestionElement = `<div id="t[id]"><p>[question]</p><span id="question[id]"></span>[required]<hr></div>`;
+        submitElement = `<div><button type="submit" onclick="ab();">Submit</button></div>`;
+        examJS.antiCheat(createExamWidget('.exam', {
+            title: '数学(答案有根号的填写“根号”二字即可)',
+            questions: [{
+                type: 'text',
+                text: '姓名',
+                only:["郭思恒","王嘉宇","余庆","刘桐宇","杨昊宇","陈星瀚","刘亚韫","胡桓玮","王维骆","李航","胡业奔","翟春辉","于明圣","董华宇","张瀚霖","杨天翼","郭金鹏","徐翔宇","周永基","程久懿","王思哲","沈德章","张瀚允","王薇薇","卢梦霏","齐艺涵","韩畅","李佳","郑晰雯","陈禹彤","杨孜骏","苏建畅","赵誉萌","刘雨甜","王鑫雨","张悦","么子涵","张舒然","林香邑","卢昱如","胡怡琳","李欣媛","李一为","刘禹含","陈文清","阮可朝","张东阳","曹嘉文","王心迪","张子尧","陈星宇"],
+                prompt: '',
+                questionType: 'FillQ',
+                part: '个人资料'
+            }, {
+                type: 'text',
+                text: '如图抛物线y=ax<sup>2</sup>+bx+c(a,b,c为常数且a≠0)的图像交x轴于A(-2,0)和点B,交y轴负半轴于点C,且OB=OC,下列结论:<br>①c=2b-2 ②a=-½ ③b=ac+1 ④a+b/c<0<br>其中正确的个数是(&nbsp&nbsp&nbsp&nbsp)<br><img src="math2.png"<br>',
+                option: ['1', '2', '3', '4'],
+                answer: '4',
+                questionType: 'MCQ',
+                part: '题目位置:中考第12题'
+            },{
+                type: 'text',
+                text: '<img src="math1.jpg">',
+                prompt: 'BD = ?',
+                answer: '根号65',
+                questionType: 'FillQ',
+                part: '题目位置:中考第17题'
+            }],
+            partition: true
+        }));
+    </script>
+    <script>
+        function ab(){
+            if (typeof checkAnswer() == 'object') {
+                if (checkAnswer().notAnswred==0){
+                var a = examJS.token(); 
+                localStorage.setItem(a, examJS.check());
+                location.href = 'after.html?' + a;
+                    }
+            else {
+                alert('请将题目全部回答完再提交~');
+                }
+            }
+            else if (checkAnswer().includes('!Only')){
+                alert('哦 我的宝 我还不认识你是谁呢');
+            }
+        }
+       </script>
+       
+</body>
+
+</html>
