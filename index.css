@@ -26,18 +26,15 @@
     transition: opacity 3s;
 }
 
-.header-img{
+.header-video{
     position: absolute;
     top: 100px;
     left: 0;
-    width: 100%;
-    height: 300px;
+    width: 100vw;
+    height: 400px;
     background-color: wheat;
-    background-image: url(https://xchuangc.github.io/Xlang/banner.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-
+    margin-top: 50.5px;
+    object-fit: fill;
 }
 
 body{
