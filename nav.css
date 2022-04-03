@@ -1,16 +1,16 @@
-* {
+*{
     user-select: none;
 }
 
-#navText {
+#navText{
     font-size: 30px;
     font-weight: bold;
     height: 60px;
 }
 
-#navImg {
+#navImg{
     border: 0px solid #ccc;
-    width: 95px;
+    width:  95px;
     height: 95px;
     background: url(icon.png);
     background-size: cover;
@@ -18,17 +18,17 @@
     margin-left: 20px;
 }
 
-.nav_title_bar {
+.nav_title_bar{
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     z-index: 999999999999;
-    background: linear-gradient(45deg, #0073ff, #00c6ff);
+    background: linear-gradient(45deg, #a770ef,#cf8bf3,#fdb99b);
     height: 100px;
 }
 
-.nav_btn {
+.nav_btn{
     max-width: 150px !important;
     min-width: 100px !important;
     height: 50px !important;
@@ -41,16 +41,16 @@
     padding: 0 !important;
     border-radius: 0 !important;
     font-family: FangSong;
-    font-size: large;
+    font-size:large;
 }
 
-.nav_btn:hover {
+.nav_btn:hover{
     cursor: pointer !important;
     background: rgb(89, 220, 240) !important;
     color: black !important;
 }
 
-.btns {
+.btns{
     position: fixed;
     top: 100px;
     left: 0;
@@ -59,32 +59,42 @@
     backdrop-filter: blur(6px);
 }
 
-.now {
+#weather{
+    position: fixed;
+    top:40px;
+    left: 850px;
+    z-index: 99999999999;    
+}
+
+
+
+
+.now{
     background-color: rgb(89, 240, 162) !important;
     color: black !important;
     font-weight: bolder;
 }
 
-.block {
+.block{
     height: 150px;
 }
 
-a:active {
+a:active{
     color: rgb(218, 179, 255);
 }
 
-a:hover {
+a:hover{
     color: rgb(218, 179, 255);
 }
 
-a {
+a{
     transition: .3s;
-    color: white;
+    color:white;
     text-decoration: none;
 }
 
-.footer {
-    position: absolute;
+.footer{
+    position:absolute;
     left: 0;
     background: #333;
     height: 120px;
@@ -92,12 +102,12 @@ a {
     padding: 50px;
 }
 
-font {
+font{
     color: white;
     font-size: 30px;
 }
 
-.copy {
+.copy{
     color: white;
     position: absolute;
     bottom: 20px;
@@ -105,32 +115,33 @@ font {
     transform: translateX(-50%);
 }
 
-.doge {
+.doge{
     transition: .3s;
 }
 
-.doge:hover {
+.doge:hover{
     cursor: pointer;
     transform: scale(2);
 }
 
-#loading {
+
+#loading{
     background-color: pink;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 99999999999999999999999999999999999999999999999999999999;
+    z-index:99999999999999999999999999999999999999999999999999999999;
     transition: opacity 1s;
 }
 
-#doge {
+#doge{
     width: 10vh;
     -webkit-user-drag: none;
 }
 
-.inner {
+.inner{
     position: fixed;
     top: 50%;
     left: 50%;
@@ -138,32 +149,33 @@ font {
     text-align: center;
 }
 
-hr {
+hr{
     border: none;
     border-bottom: 1px solid #ccc;
 }
 
-#login-btn {
+#login-btn{
     position: absolute;
     top: 20px;
     right: 10px;
     user-select: none;
-    min-width: 100px;
-    height: 30px;
-    border: 1px solid #ccc;
+    min-width:100px;
+    height:30px;
+    border:1px solid #ccc;
     font-size: 14px;
-    border-radius: 5px;
+    border-radius:5px;
     margin-top: 15px;
     outline: none;
     background: #fff;
     transition: .3s;
 }
 
-#login-btn:hover {
+#login-btn:hover{
     cursor: pointer;
     background-color: rgb(192, 247, 255);
     color: black;
 }
+
 
 .dropbtn {
     max-width: 150px !important;
@@ -179,12 +191,13 @@ hr {
     border-radius: 0 !important;
     font-family: FangSong;
     font-size: larger;
+    
 }
 
-.dropbtn:hover {
-    cursor: pointer !important;
-    background: rgb(89, 220, 240) !important;
-    color: black !important;
+.dropbtn:hover{
+        cursor: pointer !important;
+        background: rgb(89, 220, 240) !important;
+        color: black !important;
 }
 
 .dropdown {
@@ -198,23 +211,23 @@ hr {
     background-color: rgb(223, 248, 0);
     border-radius: 5px;
     min-width: 129px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
-.dropdown-content-two {
+.dropdown-content-two{
     display: none;
     position: absolute;
     background-color: rgb(255, 138, 216);
     border-radius: 5px;
-    min-width: 161.2px;
+    min-width:161.2px;
 }
 
-.dropdown-content-three {
+.dropdown-content-three{
     display: none;
     position: absolute;
     background-color: rgb(253, 169, 72);
     border-radius: 5px;
-    min-width: 190px;
+    min-width:190px;
 }
 
 .dropdown-content a {
@@ -223,7 +236,6 @@ hr {
     text-decoration: none;
     display: block;
 }
-
 .dropdown-content-two a {
     color: black;
     padding: 12px 16px;
