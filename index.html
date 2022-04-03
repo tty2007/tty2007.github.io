@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,15 +12,15 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
-        .bttn{
-            line-height:30px;
+        .bttn {
+            line-height: 30px;
             margin-top: 30px;
             width: auto;
             height: 30px;
             border-radius: 5px;
             outline: none;
             border: none;
-            background: linear-gradient(45deg,  #d183ff,#25c1ff,#d400ff);
+            background: linear-gradient(45deg, #d183ff, #25c1ff, #d400ff);
             background-size: 300%;
             background-position: center;
             color: #000000;
@@ -30,22 +31,23 @@
         }
     </style>
 </head>
+
 <body>
-    
+
     <font id="fps"></font>
     <div class="nav_title_bar">
         <div id="navImg"></div>
         <div id="login"></div>
         <script src="login/add_btn.js"></script>
-    
+
         <center>
             <div class="btns">
-                <button class="nav_btn now" onclick="top.location = 'index.html'" >主页</button>
+                <button class="nav_btn now" onclick="top.location = 'index.html'">主页</button>
                 <div class="dropdown">
                     <button class="dropbtn">&nbsp分数相关&nbsp</button>
                     <div class="dropdown-content">
                         <a href="get.html">成绩查询</a>
-                        <a href="compare.html">排名——比较</a>
+                        <a href="rank.html">排名——比较</a>
                     </div>
                 </div>
                 <div class="dropdown">
@@ -67,7 +69,9 @@
         </center>
     </div>
     <div class="block"></div>
-    <video class="header-video" id="header-video" src="sun.mp4" autoplay="autoplay" loop="loop" preload="auto"></video>
+    <video class="header-video" id="header-video" src="sun.mp4" muted autoplay loop preload playsinline>
+        <source src="./sun.mp4" type="video/mp4">
+    </video>
     <center class="body">
         <br><br><br>
         <h4>Ryukyuvania</h4>
@@ -77,35 +81,30 @@
         <h4>it is 6pm but i miss u already</h4>
         <br>
         <audio src="missu.mp3" controls="controls"></audio>
-        <br>
-        **成绩查询**
+        <br> **成绩查询**
         <br>
         <img draggable="false" src="picture1.png" style="width: 80vw; max-width: 700px;" draggable="false">
         <br>
         <text style="font-size: 20px;">简约、快速</text>
         <br><br><br>
-        <hr>
-        **成绩排行**
+        <hr> **成绩排行**
         <br>
         <img draggable="false" src="picture2.png" style="width: 80vw; max-width: 700px;" draggable="false">
         <br>
         <text style="font-size: 20px;">美观、简洁</text>
         <br><br><br>
-        <hr>
-        **成绩对比**
+        <hr> **成绩对比**
         <br>
         <img draggable="false" src="picture3.png" style="width: 80vw; max-width: 700px;" draggable="false">
         <br>
         <text style="font-size: 20px;">详细、顺滑</text>
         <br><br><br>4
         <hr>
-        <hr>
-        **按钮**
+        <hr> **按钮**
         <br>
-        <button class="button" onclick="message('嘿 你丫瞅啥');playAudio1();" >八</button>
-        <button class="button" onclick="message('嘿 你丫瞅啥');playAudio2();" >音</button>
-        <button class="button" onclick="message('嘿 你丫瞅啥');playAudioo();" >盒</button>
-        &nbsp;
+        <button class="button" onclick="message('嘿 你丫瞅啥');playAudio1();">八</button>
+        <button class="button" onclick="message('嘿 你丫瞅啥');playAudio2();">音</button>
+        <button class="button" onclick="message('嘿 你丫瞅啥');playAudioo();">盒</button> &nbsp;
         <button class="button" onclick="message('嘿 你丫瞅啥');pplayAudio();">鸡</button>
         <button class="button" onclick="message('嘿 你丫瞅啥');PplayAudio();">汤</button>
         <br>
@@ -114,8 +113,7 @@
         </i><br><br>
         <text style="font-size: 20px;">简约、美观</text>
         <br><br><br>
-        <hr>
-        **狗头**
+        <hr> **狗头**
         <br>
         <img draggable="false" src="doge.gif" draggable="false" style="width: 80vw; max-width: 700px;">
         <br><br>
@@ -139,7 +137,7 @@
         </div>
         <center class="copy">
             <div onclick="playAudioo();message('点你爹名字干什么？想你爹了？？')">&copy刘桐宇 </div>
-            
+
             <div>2022</div>
             <img draggable="false" src="doge.png" height="20px" class="doge" onclick="top.location = 'fireworks.html'">
             <img draggable="false" src="doge.png" height="20px" class="doge" onclick="top.location = 'stars.html'">
@@ -148,7 +146,7 @@
             <font style="font-size: 5px;color:rgba(255, 255, 255, 0.04);">With <a style="font-size: 5px;color:rgba(255, 255, 255, 0.04);" href="withstar.html">Star.</a></font>
         </center>
     </div>
-    
+
     <div id="jsi-cherry-container" class="container"><button onclick="top.location = 'index.html'" style="position: fixed;top: 5px;left: 5px;background: transparent;color:white;border:1px solid white;padding:20px 50px;backdrop-filter: blur(5px);user-select: none;">退出</button></div>
     <div class="gonggao">
         <div class="titlebarofgonggao">
@@ -157,19 +155,21 @@
         </div>
         <!-- class="gonggaomaininsite"><p style="font-size: 30px;">3月28日下午，中共中央政治局召开会议，研究近期有关工作。会议开始时，经中共中央总书记、国家主席、中央军委主席习近平提议，出席会议的中共中央政治局委员等全体起立，向“3·21”东航MU5735航空器飞行事故遇难同胞默哀。</p></strong>-->
         <center>
-            <p class="gonggaomain" style="margin-top: 40px;font-family: FangSong;font-size: larger;">官网正式推出在线答题功能 会不定期更新上面的题目<br>感谢各位的回答 <h1 style="font-family: FangSong;color:plum;">如有推荐题目可私信给我</h1> <p style="font-family:FangSong;font-size: larger;">我会择优选题</p></p>
+            <p class="gonggaomain" style="margin-top: 40px;font-family: FangSong;font-size: larger;">官网正式推出在线答题功能 会不定期更新上面的题目<br>感谢各位的回答
+                <h1 style="font-family: FangSong;color:plum;">如有推荐题目可私信给我</h1>
+                <p style="font-family:FangSong;font-size: larger;">我会择优选题</p>
+            </p>
         </center>
     </div>
     <div id="loading">
         <div class="inner">
             <img draggable="false" id="doge" src="doge.gif">
-            <br>
-            加载中
+            <br> 加载中
         </div>
     </div>
     <div id="message"></div>
     <link rel="stylesheet" href="message.css">
-    
+
     <script>
         setTimeout(function() {
             $("#loading").css("opacity", "0");
@@ -180,37 +180,42 @@
     </script>
     <script>
         function playAudio1() {
-          const audio = document.createElement("audio");
-          audio.src = "joker.mp3";
-          audio.play();
+            const audio = document.createElement("audio");
+            audio.src = "joker.mp3";
+            audio.play();
         }
+
         function playAudio2() {
-        const audio = document.createElement("audio");
-        audio.src = "humburger.mp3";
-        audio.play();
+            const audio = document.createElement("audio");
+            audio.src = "humburger.mp3";
+            audio.play();
         }
+
         function playAudioo() {
-        const audio = document.createElement("audio");
-        audio.src = "duck.mp3";
-        audio.play();
+            const audio = document.createElement("audio");
+            audio.src = "duck.mp3";
+            audio.play();
         }
+
         function pplayAudio() {
-        const audio = document.createElement("audio");
-        audio.src = "meishi.mp3";
-        audio.play();
+            const audio = document.createElement("audio");
+            audio.src = "meishi.mp3";
+            audio.play();
         }
+
         function PplayAudio() {
-        const audio = document.createElement("audio");
-        audio.src = "chicken.mp3";
-        audio.play();
+            const audio = document.createElement("audio");
+            audio.src = "chicken.mp3";
+            audio.play();
         }
-      </script>
-      <script>
-          var video = document.getElementById("header-video")
-          video.playbackRate = 0.5;
-      </script>
+    </script>
+    <script>
+        var video = document.getElementById("header-video")
+        video.playbackRate = 0.5;
+    </script>
     <script src="flower.js"></script>
     <script src="fps.js"></script>
     <script src="message.js"></script>
 </body>
+
 </html>
