@@ -26,6 +26,7 @@
     z-index: 999999999999;
     background: linear-gradient(45deg, #a770ef,#cf8bf3,#fdb99b);
     height: 100px;
+    margin:0
 }
 
 .nav_btn{
@@ -42,6 +43,7 @@
     border-radius: 0 !important;
     font-family: FangSong;
     font-size:large;
+    margin: 0;
 }
 
 .nav_btn:hover{
