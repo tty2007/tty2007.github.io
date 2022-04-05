@@ -1,16 +1,40 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>登录</title>
-    <link rel="stylesheet" href="../nav.css">
+    <title>九二官网</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="font.css">
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="../message.css">
-    <link rel="stylesheet" type="text/css" href="index.css">
+    <style>
+        .bttn {
+            line-height: 30px;
+            margin-top: 30px;
+            width: auto;
+            height: 30px;
+            border-radius: 5px;
+            outline: none;
+            border: none;
+            background: linear-gradient(45deg, #d183ff, #25c1ff, #d400ff);
+            background-size: 300%;
+            background-position: center;
+            color: #000000;
+            transition: .6s;
+            font-family: KaiTi_GB2312;
+            font-weight: bolder;
+            font-size: larger;
+        }
+    </style>
 </head>
+
 <body>
+
+    <font id="fps"></font>
     <div class="nav_title_bar">
         <div id="navImg"></div>
         <div id="login"></div>
@@ -45,20 +69,156 @@
         </center>
     </div>
     <div class="block"></div>
-    <div id="c">
-        <h1>登录</h1>
-        <div class="input-box" id="idc">
-            <i class="iconfont">&#xe609;</i>
-            <input type="text" id="id">
+    <video class="header-video" id="header-video" src="sun.mp4" muted autoplay loop preload playsinline>
+        <source src="./sun.mp4" type="video/mp4">
+    </video>
+    <center class="body">
+    <div id="weather">
+        <iframe width="300" height="30" frameborder="0" scrolling="no" hspace="0" src="https://i.tianqi.com/?c=code&id=1&icon=1&wind=0&num=1"></iframe>
+    </div>
+        <br><br><br>
+        <h4>Ryukyuvania</h4>
+        <br>
+        <audio src="Ryukyuvania.mp3" controls="controls"></audio>
+        <br>
+        <h4>it is 6pm but i miss u already</h4>
+        <br>
+        <audio src="missu.mp3" controls="controls"></audio>
+        <br> **成绩查询**
+        <br>
+        <img draggable="false" src="picture1.png" style="width: 80vw; max-width: 700px;" draggable="false">
+        <br>
+        <text style="font-size: 20px;">简约、快速</text>
+        <br><br><br>
+        <hr> **成绩排行**
+        <br>
+        <img draggable="false" src="picture2.png" style="width: 80vw; max-width: 700px;" draggable="false">
+        <br>
+        <text style="font-size: 20px;">美观、简洁</text>
+        <br><br><br>
+        <hr> **成绩对比**
+        <br>
+        <img draggable="false" src="picture3.png" style="width: 80vw; max-width: 700px;" draggable="false">
+        <br>
+        <text style="font-size: 20px;">详细、顺滑</text>
+        <br><br><br>4
+        <hr>
+        <hr> **按钮**
+        <br>
+        <button class="button" onclick="message('嘿 你丫瞅啥');playAudio1();">八</button>
+        <button class="button" onclick="message('嘿 你丫瞅啥');playAudio2();">音</button>
+        <button class="button" onclick="message('嘿 你丫瞅啥');playAudioo();">盒</button> &nbsp;
+        <button class="button" onclick="message('嘿 你丫瞅啥');pplayAudio();">鸡</button>
+        <button class="button" onclick="message('嘿 你丫瞅啥');PplayAudio();">汤</button>
+        <br>
+        <i style="width: 80vw;">
+            ^^^尝试点击按钮^^^
+        </i><br><br>
+        <text style="font-size: 20px;">简约、美观</text>
+        <br><br><br>
+        <hr> **狗头**
+        <br>
+        <img draggable="false" src="doge.gif" draggable="false" style="width: 80vw; max-width: 700px;">
+        <br><br>
+        <text style="font-size: 20px;">
+            <img draggable="false" src="doge.gif" height="20px" class="doge" onclick="top.location = 'fireworks.html'">
+            <img draggable="false" src="doge.gif" height="20px" class="doge" onclick="top.location = 'stars.html'">
+            <img draggable="false" src="doge.gif" height="20px" class="doge" onclick="$('#jsi-cherry-container').show();$('#jsi-cherry-container').css('opacity', '1');RENDERER.init();">
+            <br>
+            <i style="width: 80vw;">
+                ^^^长按狗头放大^^^
+                </i>
+        </text>
+        <br><br><br>
+        <hr>
+    </center>
+    <div class="footer">
+        <div class="link">
+            <a href="update.html">更新日志</a>
+            <a href="get.html">查询成绩</a>
+            <a href="rank.html">排行榜</a>
         </div>
-        <div class="input-box" id="pwdc">
-            <i class="iconfont">&#xe605;</i>
-            <input type="password" id="pwd">
+        <center class="copy">
+            <div onclick="playAudioo();message('点你爹名字干什么？想你爹了？？')">&copy刘桐宇 </div>
+
+            <div>2022</div>
+            <img draggable="false" src="doge.png" height="20px" class="doge" onclick="top.location = 'fireworks.html'">
+            <img draggable="false" src="doge.png" height="20px" class="doge" onclick="top.location = 'stars.html'">
+            <img draggable="false" src="doge.png" height="20px" class="doge" onclick="$('#jsi-cherry-container').show();$('#jsi-cherry-container').css('opacity', '1');RENDERER.init();">
+            <br>
+            <font style="font-size: 5px;color:rgba(255, 255, 255, 0.04);">With <a style="font-size: 5px;color:rgba(255, 255, 255, 0.04);" href="withstar.html">Star.</a></font>
+        </center>
+    </div>
+
+    <div id="jsi-cherry-container" class="container"><button onclick="top.location = 'index.html'" style="position: fixed;top: 5px;left: 5px;background: transparent;color:white;border:1px solid white;padding:20px 50px;backdrop-filter: blur(5px);user-select: none;">退出</button></div>
+    <div class="gonggao">
+        <div class="titlebarofgonggao">
+            <div class="x" onclick="this.remove();$('.lan').remove();$('.gonggao').remove();">✕</div>
+            <div class="title">公&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp告</div>
         </div>
-        <button id="login" onclick="login();">登录</button>
+        <!-- class="gonggaomaininsite"><p style="font-size: 30px;">3月28日下午，中共中央政治局召开会议，研究近期有关工作。会议开始时，经中共中央总书记、国家主席、中央军委主席习近平提议，出席会议的中共中央政治局委员等全体起立，向“3·21”东航MU5735航空器飞行事故遇难同胞默哀。</p></strong>-->
+        <center>
+            <p class="gonggaomain" style="margin-top: 40px;font-family: FangSong;font-size: larger;">官网正式推出在线答题功能 会不定期更新上面的题目<br>感谢各位的回答
+                <h1 style="font-family: FangSong;color:plum;">如有推荐题目可私信给我</h1>
+                <p style="font-family:FangSong;font-size: larger;">我会择优选题</p>
+            </p>
+        </center>
+    </div>
+    <div id="loading">
+        <div class="inner">
+            <img draggable="false" id="doge" src="doge.gif">
+            <br> 加载中
+        </div>
     </div>
     <div id="message"></div>
-    <script src="login.js"></script>
-    <script src="../message.js"></script>
+    <link rel="stylesheet" href="message.css">
+
+    <script>
+        setTimeout(function() {
+            $("#loading").css("opacity", "0");
+            setTimeout(function() {
+                $("#loading").hide();
+            }, 1000);
+        }, 3000);
+    </script>
+    <script>
+        function playAudio1() {
+            const audio = document.createElement("audio");
+            audio.src = "joker.mp3";
+            audio.play();
+        }
+
+        function playAudio2() {
+            const audio = document.createElement("audio");
+            audio.src = "humburger.mp3";
+            audio.play();
+        }
+
+        function playAudioo() {
+            const audio = document.createElement("audio");
+            audio.src = "duck.mp3";
+            audio.play();
+        }
+
+        function pplayAudio() {
+            const audio = document.createElement("audio");
+            audio.src = "meishi.mp3";
+            audio.play();
+        }
+
+        function PplayAudio() {
+            const audio = document.createElement("audio");
+            audio.src = "chicken.mp3";
+            audio.play();
+        }
+    </script>
+    <script>
+        var video = document.getElementById("header-video")
+        video.playbackRate = 0.5;
+    </script>
+    <script src="flower.js"></script>
+    <script src="fps.js"></script>
+    <script src="message.js"></script>
 </body>
+
 </html>
