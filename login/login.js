@@ -24,7 +24,7 @@ try{
         }
         else{
             try{
-                location.href='./index.html'+location.href.split('?dt=')[1];
+                location.href='./index.html?dt'+location.href.split('?dt=')[1];
             }
             catch{
                 location.href='./index.html';

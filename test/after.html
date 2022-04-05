@@ -9,10 +9,43 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <link rel="stylesheet" src="nav.css">
 </head>
 
 <body>
+    <div class="nav_title_bar">
+        <div id="navImg"></div>
+        <div id="login"></div>
+        <script src="login/add_btn.js"></script>
 
+        <center>
+            <div class="btns">
+                <button class="nav_btn now" onclick="top.location = 'index.html'">主页</button>
+                <div class="dropdown">
+                    <button class="dropbtn">&nbsp分数相关&nbsp</button>
+                    <div class="dropdown-content">
+                        <a href="get.html">成绩查询</a>
+                        <a href="rank.html">排名——比较</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">娱乐</button>
+                    <div class="dropdown-content-two">
+                        <a href="wuziqi.html">五子棋</a>
+                        <a href="chushibiao.html">背出师表啊宝贝儿</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">练习系统</button>
+                    <div class="dropdown-content-three">
+                        <a href="test/math.html" style="font-size: larger;">数学</a>
+                        <a href="test/english.html" style="font-size: larger;">英语</a>
+                        <a href="" style="pointer-events:none; color: #919191; font-size: 83%;">物理<br>(该学科暂未开放敬请期待)</a>
+                    </div>
+                </div>
+            </div>
+        </center>
+    </div>
     <div class="data">
         <div id="name"></div>
         <div id="c1">
