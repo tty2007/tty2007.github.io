@@ -14,7 +14,7 @@ try{
     else if(location.href.includes('token')){
         $('#idc').hide();
         $('#pwdc').hide();
-        $('#login').hide();
+        $('button#login').hide();
         gtoken = location.href.split('?token=')[1].split('&')[0]
         if(gtoken==localStorage.getItem('token')){
             if(location.href.split('?')[1].split('&login=')[1] == 't'){
@@ -68,11 +68,12 @@ try{
         if(localStorage.getItem('token') == gtoken || localStorage.getItem('login')=='true'){
             $('#id').hide();
             $('#pwd').hide();
-            $('#login').hide();
+            $('button#login').hide();
             if(gtoken==localStorage.getItem('token')){
                 if(location.href.split('?')[1].split('&login=')[1] == 't'){
                     console.log('login success');
                     $('#c').append(`<font style="color:white;">已登录: ${localStorage.getItem('username')}</font><br><button onclick="logout();">登出</button>`);
+                    $('button#login').remove();
                 }
             }
         }
